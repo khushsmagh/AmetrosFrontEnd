@@ -11,15 +11,15 @@ class Colors {
 	function __construct($partnerID) {
 
 		if($partnerID == 1){
-			$this->color1 = "Blue";
-			$this->color2 = "Light Blue";		
-			$this->color3 = "Dark Blue";
-			$this->color4 = "White";
+			$this->color1 = "#22f";
+			$this->color2 = "#77f";		
+			$this->color3 = "#333";
+			$this->color4 = "#777";
 		}else{
-			$this->color1 = "Red";
-			$this->color2 = "Light Red";		
-			$this->color3 = "Dark Red";
-			$this->color4 = "White";			
+			$this->color1 = "#f22";
+			$this->color2 = "#f77";		
+			$this->color3 = "#333";
+			$this->color4 = "#777";			
 		}
 	}
 	
