@@ -9,20 +9,17 @@ class Colors {
 	protected $color4;	
 	
 	function __construct($partnerID) {
-		$this->color1 = "";
-		$this->color2 = "";
-		$this->color3 = "";
-		$this->color4 = "";
+
 		if($partnerID == 1){
 			$this->color1 = "Blue";
 			$this->color2 = "Light Blue";		
 			$this->color3 = "Dark Blue";
 			$this->color4 = "White";
 		}else{
-			$this->$color1 = "Red";
-			$this->$color2 = "Light Red";		
-			$this->$color3 = "Dark Red";
-			$this->$color4 = "White";			
+			$this->color1 = "Red";
+			$this->color2 = "Light Red";		
+			$this->color3 = "Dark Red";
+			$this->color4 = "White";			
 		}
 	}
 	
