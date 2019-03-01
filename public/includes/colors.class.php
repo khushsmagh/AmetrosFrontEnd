@@ -24,18 +24,18 @@ class Colors {
 	}
 	
 	public function color1() {
-		return $this->color1;
+		echo $this->color1;
 	}
 	
 	public function color2() {
-		return $this->color2;
+		echo $this->color2;
 	}			
 
 	public function color3() {
-		return $this->color3;
+		echo $this->color3;
 	}			
 
 	public function color4() {
-		return $this->color4;
+		echo $this->color4;
 	}			
 }
