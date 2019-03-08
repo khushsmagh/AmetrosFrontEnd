@@ -9,5 +9,5 @@ const server = app.listen(8080, () => {
 //start serving static files
 app.use(express.static('public'));
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/landing-page/html/landing-page.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
