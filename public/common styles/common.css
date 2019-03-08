@@ -7,3 +7,20 @@
 #banner-background {
     width: 100vw;
 }
+/**
+sign-up-page css
+*/
+.card-border{
+    border-width:3px !important;
+    border-color: rgb(131,58,180);
+}
+.sign-up-text{
+    padding-top: 50%;
+    color : rgba(131,58,180,1);
+}
+.sign-up-header{
+    background: rgba(131,58,180,1);
+}
+.sign-up-btn{
+    background: rgba(131,58,180,1);
+}
