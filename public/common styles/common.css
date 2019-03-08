@@ -5,17 +5,17 @@
 .navbar a { color: white; }
 
 #banner-background {
-    width: 100vw;
+    width: 100%;
 }
 
+#partner-description {
+    overflow-wrap: break-word;
+}
 
 .regcardheader {
     /*background-color: rgb(35, 106, 236);*/
-
     background: linear-gradient(90deg, rgb(40, 93, 238) 0%, rgb(163, 29, 253) 100%, rgb(22, 204, 159) 100%);
-
 }
-
 
 #regcardfont {
     font-size: 20px;

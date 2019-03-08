@@ -18,6 +18,9 @@ window.addEventListener('load', function() {
     //event listner for partner description change
     const defaultPartnerDescription = "Welcome to " + defaultPartnerName;
     document.getElementById('partnerDesriptionInput').addEventListener('keyup', function(e) {
+        if (e.target.value.length > 500) {
+            return;
+        }
         let partnerDescriptionNode = document.getElementById('partner-description');
         partnerDescriptionNode.innerHTML = e.target.value === "" ? defaultPartnerDescription : e.target.value;
     });
