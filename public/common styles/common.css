@@ -18,6 +18,13 @@ sign-up-page css
     padding-top: 50%;
     color : rgba(131,58,180,1);
 }
+.login-text{
+    padding-top: 40%;
+    color : rgba(131,58,180,1);
+}
+.login-form{
+    padding-top: 12%;
+}
 .sign-up-header{
     background: rgba(131,58,180,1);
 }
