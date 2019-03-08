@@ -14,6 +14,7 @@ window.addEventListener('load', function() {
     var cartProducts = [];
     // Function to add simulations to an array
     function addToCart(event){
+        event.preventDefault();
         let buttonAdd = event.target;
         let itemSimulation = buttonAdd.parentElement.parentElement;
         let simulationTitle = itemSimulation.getElementsByClassName('title-simulation')[0].innerHTML
@@ -21,14 +22,16 @@ window.addEventListener('load', function() {
         let startDateSimulation = itemSimulation.getElementsByClassName('start-simulation')[0].innerHTML
         let endDateSimulation = itemSimulation.getElementsByClassName('end-simulation')[0].innerHTML
         let seatsAvailable = itemSimulation.getElementsByClassName('seats-simulation')[0].innerHTML
-        
+
         let newSimulation = new Simulation(simulationTitle, priceSimulation, startDateSimulation, endDateSimulation, seatsAvailable);
         cartProducts.push(newSimulation);
-        console.log(cartProducts[0]);  
+        // Saving array of simulation objects in local storage
+        localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+        console.log(cartProducts[0]);
     };
 
     let addToCartButtons = document.getElementsByClassName('simulationAdd');
     for (let index = 0; index < addToCartButtons.length; index++) {
         addToCartButtons[index].addEventListener('click', addToCart);   
-    }; 
+    };  
 });
