@@ -78,8 +78,12 @@ function createRemovedButton(){
         let currentRow = this.parentElement.parentElement;
         // get the table that contains the row
         let currentTable = currentRow.parentElement;
-        // remove the row from the table
-        currentTable.removeChild(currentRow);
+        // display deletion confirm message
+        let deleteConfirm = confirm("Are you sure you want to delete this?");
+        if (deleteConfirm) {
+            // remove the row from the table
+            currentTable.removeChild(currentRow);
+        }
     });
     return deleteButton;
 }
