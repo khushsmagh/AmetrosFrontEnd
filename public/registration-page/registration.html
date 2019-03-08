@@ -13,57 +13,28 @@
         <link rel="stylesheet" href="../common styles/common.css">
         <link rel='stylesheet' href="./customize-form-style.css">
     </head>
-    <body>
+    <body style="background-color: rgb(245, 245, 245)">
           <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="#">Ametros Learning</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><i class="fas fa-list"></i></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Support <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Simulations
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Actio</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href=""><i class="fas fa-cart-plus"></i> Cart</a>
-                        </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-warning" type="submit">Search</button>
-                    </form>
-                </div>
+            
             </nav>
             <!-- End Navbar-->
         <div class="container">
-            <div class="d-flex justify-content-center mt-5">
-                <div class="card border-primary" style="width: 29rem;">
-                    <h5 class="navbar card-header text-center">Confirm registration</h5>
+            <div class="d-flex justify-content-center mb-5" style = "padding-top: 11vh;">
+                <div class=" card " style="width: 40rem;">
+                    <h5 class="regcardheader card-header text-center text-white">Confirm Simulation Registration</h5>
                     <div class="card-body">
-                        <h5 class="card-title">Detail information</h5>
+                        <h5 id = "regcardfont" class="card-title  text-center">Registration Details</h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><b>Email:</b> bob@gmail.com</li>
-                            <li class="list-group-item"><b>Simulation Name:</b> Business Management</li>
-                            <li class="list-group-item"><b>Seats left:</b> 20</li>
-                            <li class="list-group-item"><b>Price:</b> $40</li>
-                            <li class="list-group-item"><b>From:</b> 2019-05-13</li>
-                            <li class="list-group-item"><b>To: </b>2019-06-13</li>
+                            <li id = "regcardfont" class="list-group-item"><b>Email:</b> bob@gmail.com</li>
+                            <li id = "regcardfont" class="list-group-item"><b>Simulation Name:</b> Business Management</li>
+                            <li id = "regcardfont" class="list-group-item"><b>Seats left:</b> 20</li>
+                            <li id = "regcardfont" class="list-group-item"><b>Price:</b> $40</li>
+                            <li id = "regcardfont" class="list-group-item"><b>From:</b> 2019-05-13</li>
+                            <li id = "regcardfont" class="list-group-item"><b>To: </b>2019-06-13</li>
                         </ul>
-                        <p class="card-text mt-2">Please click submit to confirm simulation or cancel.</p>
+                        <p class="card-text mt-2  text-center">Please click submit to confirm simulation or cancel.</p>
                     </div>
                     <div class="card-body text-center">
                         <button type="submit" class="btn btn-md btn-primary">Submit</button>
