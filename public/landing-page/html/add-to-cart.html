@@ -9,13 +9,13 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="../common styles/common.css">
+    <link rel="stylesheet" href="../../common styles/common.css">
     <title>Branded Landing Page</title>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-sm mb-4">
         <a class="navbar-brand" href="#">Ametros Learning</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,81 +48,43 @@
             </form>
         </div>
     </nav>
-    <!-- End Navbar-->
-    <div class="row d-flex justify-content-around">
-        <div class="jumbotron" id='banner-background'>
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" id='partner-logo' class="img-thumbnail rounded float-left" />
-                </div>
-                <div class="col-md-8" id="parner-info">
-                    <h1 id='partner-name'>Bow Valley College</h1>
-                    <p id='partner-description'>l eius voluptatibus animi placeat excepturi, a labore amet fugit id
-                        beatae, omnis, porro nulla accusamus harum?</p>
-                </div>
-                <div class="col-md-1">
-                    <a href="./customize-landing-page.html"><i class="far fa-edit fa-2x"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- content -->
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-11 ">
-            <div class="row bg-light border border-dark rounded">
-                <div class="col-md-3 my-3">
-                    <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
-                </div>
-                <div class="col-md-9 mt-3">
-                    <ul class="list-group">
-                        <li class="list-group-item active">Soft Skills Simulation</li>
-                        <li class="list-group-item">Start Date: </li>
-                        <li class="list-group-item">End Date: </li>
-                        <li class="list-group-item">Seats avalable: <span class="badge badge-secondary">30</span></li>
-                    </ul>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-success my-4">Register</button>
-                        <button class="btn btn-primary my-4 ml-3">Add to cart</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row bg-light mt-4 border border-dark rounded">
-                <div class="col-md-3 my-3">
-                    <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
-                </div>
-                <div class="col-md-9 mt-3 ">
-                    <ul class="list-group">
-                        <li class="list-group-item active">Soft Skills Simulation</li>
-                        <li class="list-group-item">Start Date: </li>
-                        <li class="list-group-item">End Date: </li>
-                        <li class="list-group-item">Seats avalable: <span class="badge badge-secondary">30</span></li>
-                    </ul>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-success my-4">Register</button>
-                        <button class="btn btn-primary my-4 ml-3">Add to cart</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row bg-light mt-4 border border-dark rounded">
-                <div class="col-md-3 my-3">
-                    <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
-                </div>
-                <div class="col-md-9 mt-3 ">
-                    <ul class="list-group">
-                        <li class="list-group-item active">Soft Skills Simulation</li>
-                        <li class="list-group-item">Start Date: </li>
-                        <li class="list-group-item">End Date: </li>
-                        <li class="list-group-item">Seats avalable: <span class="badge badge-secondary">30</span></li>
-                    </ul>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn btn-success my-4">Register</button>
-                        <button class="btn btn-primary my-4 ml-3">Add to cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+    <!-- End navbar --> 
+    <!-- Content -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td><button class="btn btn-danger">X</button></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td><button class="btn btn-danger">X</button></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+                <td><button class="btn btn-danger">X</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
