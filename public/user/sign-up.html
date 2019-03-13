@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../common styles/common.css">
 </head>
 
-<body>
+<body onload="resetForm()">
     <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">Ametros Learning</a>
     </nav>
@@ -22,7 +22,8 @@
                 <h5 class="text-info">Create an Ametros account to browse all items.</h5>
             </div>
             <div class = "col-md-5 col-sm-5">
-                <div class="card card-border">
+                <form id = "signUpForm" action="login.html" onsubmit=" return validateUsername()">
+                <div class="card card-border form-group">
                     <h5 class="card-header text-center sign-up-header text-light">
                         <b>Sign-Up</b>
                     </h5>
@@ -30,26 +31,26 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <b>Email:</b>
-                                <input class="form-control" type="text" placeholder="bob@gmail.com" />
+                                <input id = "email" class="form-control" type="text" placeholder="bob@gmail.com" />
                             </li>
                             <li class="list-group-item">
                                 <b>First Name:</b>
-                                <input class="form-control" type="text" placeholder="bob" />
+                                <input  id = "firstName" class="form-control" type="text" placeholder="bob" />
                             </li>
                             <li class="list-group-item">
                                 <b>Last Name:</b>
-                                <input class="form-control" type="text" placeholder="brown" />
+                                <input  id = "lastName" class="form-control" type="text" placeholder="brown" />
                             </li>
                             <li class="list-group-item">
                                 <b>Password:</b>
-                                <input class="form-control" type="text" placeholder="***********" />
+                                <input id = "password" class="form-control" type="password" placeholder="***********" />
                             </li>
                             <li class="list-group-item">
                                 <b>Confirm Password:</b>
-                                <input class="form-control" type="text" placeholder="**********" />
+                                <input id = "confirmPassword" class="form-control" type="password" placeholder="**********" />
                             </li>
                             <li class="list-group-item">
-                                <input class="form-check-input" type="checkbox" />
+                                <input id = "terms" class="form-check-input" type="checkbox" />
                                 <b>I agree with
                                     <span class="text-primary">terms and conditions</span>
                                 </b>
@@ -57,8 +58,8 @@
                         </ul>
                     </div>
                     <div class="card-body text-center">
-                        <a class="text-white" href="../landing-page/html/landing-page.html">
-                            <button type="submit" class=" btn btn-md sign-up-btn text-light">
+                        <a class="text-white" >
+                            <button type="submit" value ="submit" class=" btn btn-md sign-up-btn text-light">
                                 <b>Sign-Up</b>
                             </button>
                         </a>
@@ -69,9 +70,12 @@
                         </a>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </div>
 </body>
 
+
+    <script src="validation/common.js"></script>
 </html>
