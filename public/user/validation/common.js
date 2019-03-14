@@ -11,32 +11,34 @@ function validateUsername(){
     var checkTNC = document.getElementById("terms").checked;
     var validPassword = document.getElementById("password").value;
     var validConfirmPassword = document.getElementById("confirmPassword").value;
-    if(!validfirstUsername){
+
+    if(!validEmail){
+        alert("Your email is not valid.");
+        return false;
+    }
+    else if(!validfirstUsername){
         alert("Your first name is not valid. Only characters A-Z, a-z and '-' are  acceptable.");
         return false;
     }
     else if(!validLastName){
         alert("Your lastName name is not valid. Only characters A-Z, a-z and '-' are  acceptable.");
         return false;
+    
     }
-    else if(!validEmail){
-        alert("Your email is not valid.");
-        return false;
-    }
-    else if(!checkTNC){
-        alert("you have to check the terms and conditions");
-        return false;
-    }
-    else if(validPassword == null){
+    else if(validPassword == null || validPassword == ""){
         alert("you have to insert password");
         return false;
     }
-    else if(validConfirmPassword == null){
+    else if(validConfirmPassword == null || validPassword == "" ){
         alert("you have to insert password");
         return false;
     }
     else if(validPassword !== validConfirmPassword){
         alert("check your password");
+        return false;
+    }
+    else if(!checkTNC){
+        alert("you have to check the terms and conditions");
         return false;
     }
     else{
