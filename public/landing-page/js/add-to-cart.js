@@ -1,34 +1,5 @@
-// dummy data
-// const listSims = [
-//     {
-//         Name: "Soft-skills",
-//         Price: 200,
-//         StartDate: '2019-03-02',
-//         EndDate : '2023-03-02',
-//         SeatAvailable : 20
-//     },
-//     {
-//         Name: "Hard-skills",
-//         Price: 400,
-//         StartDate: '2019-03-02',
-//         EndDate: '2023-03-02',
-//         SeatAvailable: 30
-//     },
-//     {
-//         Name: "Web-skills",
-//         Price: 700,
-//         StartDate: '2019-03-02',
-//         EndDate: '2023-03-02',
-//         SeatAvailable: 40
-//     }
-// ];
-
 const listSims = JSON.parse(localStorage.getItem('cartProducts'));
-console.log(listSims);
-
-
 const tableBody = document.getElementById('table-content');
-
 window.addEventListener('load' , function(){
     // for each element in the data list
     // follow these steps below
@@ -85,6 +56,13 @@ function createRemovedButton(){
         // display deletion confirm message
         let deleteConfirm = confirm("Are you sure you want to delete this?");
         if (deleteConfirm) {
+            // get name of sim that will be deleted
+            let simName = currentRow.childNodes[1].innerHTML;
+            // update the cart items within localStorage
+            let updatedListSims = listSims.filter(sim => {
+                return sim.title !== simName;
+            });
+            localStorage.setItem('cartProducts', JSON.stringify(updatedListSims));
             // remove the row from the table
             currentTable.removeChild(currentRow);
         }
