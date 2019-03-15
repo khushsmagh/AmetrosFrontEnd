@@ -1,27 +1,31 @@
 // dummy data
-const listSims = [
-    {
-        Name: "Soft-skills",
-        Price: 200,
-        StartDate: '2019-03-02',
-        EndDate : '2023-03-02',
-        SeatAvailable : 20
-    },
-    {
-        Name: "Hard-skills",
-        Price: 400,
-        StartDate: '2019-03-02',
-        EndDate: '2023-03-02',
-        SeatAvailable: 30
-    },
-    {
-        Name: "Web-skills",
-        Price: 700,
-        StartDate: '2019-03-02',
-        EndDate: '2023-03-02',
-        SeatAvailable: 40
-    }
-];
+// const listSims = [
+//     {
+//         Name: "Soft-skills",
+//         Price: 200,
+//         StartDate: '2019-03-02',
+//         EndDate : '2023-03-02',
+//         SeatAvailable : 20
+//     },
+//     {
+//         Name: "Hard-skills",
+//         Price: 400,
+//         StartDate: '2019-03-02',
+//         EndDate: '2023-03-02',
+//         SeatAvailable: 30
+//     },
+//     {
+//         Name: "Web-skills",
+//         Price: 700,
+//         StartDate: '2019-03-02',
+//         EndDate: '2023-03-02',
+//         SeatAvailable: 40
+//     }
+// ];
+
+const listSims = JSON.parse(localStorage.getItem('cartProducts'));
+console.log(listSims);
+
 
 const tableBody = document.getElementById('table-content');
 
@@ -46,11 +50,11 @@ window.addEventListener('load' , function(){
 
         // step 3 append data to all cells
         tableCellNumber.append(index + 1);
-        tableCellName.append(item.Name);
-        tableCellPrice.append("$" + item.Price);
-        tableCellStartDate.append(item.StartDate);
-        tableCellEndDate.append(item.EndDate);
-        tableCellSeatAvailable.append(item.SeatAvailable);
+        tableCellName.append(item.title);
+        tableCellPrice.append("$" + item.price);
+        tableCellStartDate.append(item.startDate);
+        tableCellEndDate.append(item.endDate);
+        tableCellSeatAvailable.append(item.seatsAvailable);
         tableCellRemoveButton.append(deleteButton);
 
         // step 4 append all cell elements to the table row
