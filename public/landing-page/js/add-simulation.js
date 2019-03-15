@@ -15,7 +15,7 @@ window.addEventListener('load', function() {
     // Function to add simulations to an array
     function addToCart(event){
         let buttonAdd = event.target;
-        let itemSimulation = buttonAdd.parentElement.parentElement;
+        let itemSimulation = buttonAdd.parentElement.parentElement.parentElement;
         let simulationTitle = itemSimulation.getElementsByClassName('title-simulation')[0].innerHTML;
         let priceSimulation  = itemSimulation.getElementsByClassName('price-simulation')[0].innerHTML;
         let startDateSimulation = itemSimulation.getElementsByClassName('start-simulation')[0].innerHTML;
