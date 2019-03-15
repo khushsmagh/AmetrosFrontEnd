@@ -10,6 +10,11 @@ class Simulation{
 }
 
 window.addEventListener('load', function() {
+    // reference of alert div element
+    let messageDiv = document.getElementById('addCart-message');
+    // by default it is hidden 
+    messageDiv.setAttribute('style', 'visibility: hidden');
+
     // array containing the products in the cart
     var cartProducts = [];
     // Function to add simulations to an array
@@ -30,6 +35,15 @@ window.addEventListener('load', function() {
         for (let index = 0; index < cartProducts.length; index++) {
             console.log(cartProducts[index]);
         }
+
+        // Pop up add to cart success message after 
+        // simulation was added to cart
+        messageDiv.setAttribute('style', 'visibility: visible');
+        // disappear the message after 2s
+        let timeToShowMessage = 2000;
+        setTimeout(() => {
+            messageDiv.setAttribute('style', 'visibility: hidden');
+        }, timeToShowMessage);
     };
 
     let addToCartButtons = document.getElementsByClassName('simulationAdd');

@@ -1,0 +1,15 @@
+#addCart-message {
+    display: block;
+    visibility: visible;
+    position:fixed; 
+    top: 2%; 
+    left: 30%; 
+    width: 40%;
+    z-index:9999; 
+    border-radius:0px;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
