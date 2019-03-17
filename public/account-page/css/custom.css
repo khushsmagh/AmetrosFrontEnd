@@ -1,0 +1,93 @@
+/* Color Settings */
+
+/* Top Nav-bar */
+
+    /* Background Color */
+    .custom-nav {
+        background-image: linear-gradient(rgb(90, 100, 222), rgb(90, 100, 222));
+    }
+
+    /* Nav-bar Icons color */
+    i.fas,
+    i.fab {
+    color: whitesmoke;
+    }
+
+/* Main Content */
+
+    /* Content Background */
+    #content {
+        background-image: linear-gradient(rgb(245, 245, 245), rgb(200, 200, 200));
+    }
+
+    /* Button color */
+    .custom-btn {
+        background-image: linear-gradient(rgb(120, 225, 243), rgb(120, 225, 243));
+        color:linear-gradient(rgb(0, 105, 123), rgb(0, 105, 123));
+    }
+
+    /* Simulations Card */
+        /* Card Header Background */
+        div.cd-header {
+            background-image: linear-gradient(rgb(222, 69, 63), rgb(222, 69, 63));
+        }
+
+        /* Card Header Font */
+        div.cd-header h4 {
+            color: oldlace
+        }
+
+        /* Card Body Background */
+        div.cd-body {
+            background-image: linear-gradient(white, rgb(245, 245, 245));
+        }
+
+        /* Table Background */
+        tbody.tb-body tr td{
+            background-image: linear-gradient(rgb(200, 155, 29), rgb(200, 155, 29));
+            color: oldlace;
+        }
+
+        /* Hovering color */
+        div.table-responsive table tbody td.table-data:hover {
+            background-image: linear-gradient(rgb(240, 195, 69), rgb(240, 195, 69));
+            color: black;
+        }
+
+        /* Table Font Color */
+        div.cd-body p {
+            color: darkblue;
+        }
+
+        /* Module Label Font Color */
+        div.cd-body h4 {
+            color:darkolivegreen
+        }
+
+/* Sidebar config */
+
+    /* Background Color */
+    .custom-sidebar {
+        background-image: linear-gradient(rgb(54, 203, 138), rgb(34, 183, 118));
+    }
+
+    /* Icon Color */
+    i.fas.fa-fw.icon-sidebar  {
+        color: darkgreen
+    }
+
+    /* Font Color */
+    .custom-sidebar span {
+        color: darkblue
+    }
+
+
+
+/* Footer */
+    .sticky-footer{
+        background-image: linear-gradient(rgb(90, 100, 222), rgb(90, 100, 222));
+    }
+
+    #copyright {
+        color: whitesmoke;
+    }
