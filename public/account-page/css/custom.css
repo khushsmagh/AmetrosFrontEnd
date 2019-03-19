@@ -4,54 +4,64 @@
 
     /* Background Color */
     .custom-nav {
-        background-image: linear-gradient(rgb(90, 100, 222), rgb(90, 100, 222));
+        background-image: linear-gradient(to left,rgb(245, 0, 39), rgb(132, 46, 178));
     }
 
     /* Nav-bar Icons color */
     i.fas,
     i.fab {
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
     }
+
+    /* Search Icon */
+    i.fa-search {
+        color: rgb(33, 37, 41);
+    }
+
+    /* Badge Counter */
+    .badge-value {
+        color: rgb(33, 37, 41);
+        }
 
 /* Main Content */
 
     /* Content Background */
     #content {
-        background-image: linear-gradient(rgb(245, 245, 245), rgb(200, 200, 200));
-    }
+        background-image: linear-gradient(rgb(233, 236, 239), rgb(233, 236, 239));
+    } 
 
     /* Button color */
     .custom-btn {
-        background-image: linear-gradient(rgb(120, 225, 243), rgb(120, 225, 243));
-        color:linear-gradient(rgb(0, 105, 123), rgb(0, 105, 123));
+        background-image: linear-gradient(rgb(249, 195, 32), rgb(249, 195, 32));
+        color:linear-gradient(rgb(33, 37, 41),rgb(33, 37, 41));
     }
 
     /* Simulations Card */
         /* Card Header Background */
         div.cd-header {
-            background-image: linear-gradient(rgb(222, 69, 63), rgb(222, 69, 63));
+            background-image: linear-gradient(rgb(149, 36, 208), rgb(149, 36, 208));
         }
 
         /* Card Header Font */
         div.cd-header h4 {
-            color: oldlace
+            color: rgb(255, 255, 255);
         }
 
         /* Card Body Background */
         div.cd-body {
-            background-image: linear-gradient(white, rgb(245, 245, 245));
+            background-image: linear-gradient(rgb(248, 249, 250), rgb(248, 249, 250));
         }
 
         /* Table Background */
         tbody.tb-body tr td{
-            background-image: linear-gradient(rgb(200, 155, 29), rgb(200, 155, 29));
-            color: oldlace;
+            background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+            color: rgb(33, 37, 41);
         }
 
         /* Hovering color */
         div.table-responsive table tbody td.table-data:hover {
-            background-image: linear-gradient(rgb(240, 195, 69), rgb(240, 195, 69));
-            color: black;
+            background-image: linear-gradient(rgb(149, 36, 208), rgb(132, 46, 178));
+            color: rgb(255, 255, 255);
         }
 
         /* Table Font Color */
@@ -68,26 +78,32 @@
 
     /* Background Color */
     .custom-sidebar {
-        background-image: linear-gradient(rgb(54, 203, 138), rgb(34, 183, 118));
+        background-image: linear-gradient(to left, rgb(132, 46, 178), rgb(112, 26, 158));
     }
 
     /* Icon Color */
     i.fas.fa-fw.icon-sidebar  {
-        color: darkgreen
+        color: rgb(255, 255, 255);
     }
 
     /* Font Color */
     .custom-sidebar span {
-        color: darkblue
+        color: rgb(255, 255, 255);
     }
 
 
 
 /* Footer */
     .sticky-footer{
-        background-image: linear-gradient(rgb(90, 100, 222), rgb(90, 100, 222));
+        background-image: linear-gradient(to left,rgb(245, 0, 39), rgb(132, 46, 178));
     }
 
     #copyright {
         color: whitesmoke;
+    }
+
+/* Font Type */
+
+    .custom-font {
+        font-family: Arial, Helvetica, sans-serif;
     }
