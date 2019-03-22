@@ -15,6 +15,9 @@ window.addEventListener('load', function() {
     // by default it is hidden 
     messageDiv.setAttribute('style', 'visibility: hidden');
 
+    // Display number of current sims within user's cart
+    displayCartItemsNumber();
+
     // array containing the products in the cart
     var cartProducts = [];
     // Function to add simulations to an array
@@ -33,9 +36,7 @@ window.addEventListener('load', function() {
         sessionStorage.setItem('cartProducts', JSON.stringify(cartProducts));
 
         // Increase the number of sims within the cart icon
-        let cartNumberIcon = document.getElementById('cart-quantity');
-        let currenNumberOfSimsInCart = JSON.parse(sessionStorage.getItem('cartProducts')).length;
-        cartNumberIcon.innerHTML = currenNumberOfSimsInCart;
+        displayCartItemsNumber();
 
         // Displaying all simulations objects in console log
         for (let index = 0; index < cartProducts.length; index++) {
@@ -57,3 +58,11 @@ window.addEventListener('load', function() {
         addToCartButtons[index].addEventListener('click', addToCart);   
     };  
 });
+
+function displayCartItemsNumber() {
+    // This function is to display current
+    // sims within the user's cart
+    let cartNumberIcon = document.getElementById('cart-quantity');
+    let currenNumberOfSimsInCart = JSON.parse(sessionStorage.getItem('cartProducts')).length;
+    cartNumberIcon.innerHTML = currenNumberOfSimsInCart;
+}
