@@ -1,10 +1,11 @@
-// Get list of selected sim from session storage
-const listSims = JSON.parse(sessionStorage.getItem('cartProducts'));
-
 // Reference to the tbody of table
 // on which the sin data will be displayed as row
 const tableBody = document.getElementById('table-content');
 window.addEventListener('load' , function(){
+
+    // Get list of selected sim from session storage
+    const listSims = getLatestListSim();
+
     // for each element in the data list
     // follow these steps below
     listSims.forEach((item, index) => {
@@ -52,9 +53,13 @@ function createRemovedButton(){
     deleteButton.setAttribute('class', 'btn btn-danger');
     deleteButton.innerHTML = "X";
     // adding click event for delete button
-    deleteButton.addEventListener('click', function() {
+    deleteButton.addEventListener('click', function(e) {
+        // get the latest list of sims within session storage
+        const listSims = getLatestListSim();
+        // get reference to clicked button
+        let currentClickedButton = e.target;
         // get the row that contains the button
-        let currentRow = this.parentElement.parentElement;
+        let currentRow = currentClickedButton.parentElement.parentElement;
         // get the table that contains the row
         let currentTable = currentRow.parentElement;
         // display deletion confirm message
@@ -62,13 +67,18 @@ function createRemovedButton(){
         if (deleteConfirm) {
             // get name of sim that will be deleted
             let simName = currentRow.childNodes[1].innerHTML;
-            // update the cart items within localStorage
+            // update the cart items within sessionStorage
             let updatedListSims = listSims.filter(sim => {
                 return sim.title !== simName;
             });
+            // Remove the whole list sim from session storage
+            sessionStorage.removeItem('cartProducts');
+            // create new list sims with updated data
             sessionStorage.setItem('cartProducts', JSON.stringify(updatedListSims));
             // remove the row from the table
             currentTable.removeChild(currentRow);
+            // display updated number of sims within cart
+            displayCartItemsNumber();
         }
     });
     return deleteButton;
@@ -76,4 +86,8 @@ function createRemovedButton(){
 
 function createHtmlElement(element) {
     return document.createElement(element);
+}
+
+function getLatestListSim() {
+    return JSON.parse(sessionStorage.getItem('cartProducts'));
 }

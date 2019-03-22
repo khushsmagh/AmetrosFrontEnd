@@ -15,9 +15,6 @@ window.addEventListener('load', function() {
     // by default it is hidden 
     messageDiv.setAttribute('style', 'visibility: hidden');
 
-    // Display number of current sims within user's cart
-    displayCartItemsNumber();
-
     // array containing the products in the cart
     var cartProducts = [];
     // Function to add simulations to an array
@@ -30,6 +27,20 @@ window.addEventListener('load', function() {
         let endDateSimulation = itemSimulation.getElementsByClassName('end-simulation')[0].innerHTML;
         let seatsAvailable = itemSimulation.getElementsByClassName('seats-simulation')[0].innerHTML;
 
+        // get the current items in the cart
+        let currentSimsList = JSON.parse(sessionStorage.getItem('cartProducts'));
+        
+        // check if any duplicated sim found
+        if (currentSimsList) {
+            let filterdSimList = currentSimsList.filter(sim =>
+                sim.title === simulationTitle
+            );
+            // if there is duplication, stop adding to cart
+            if (filterdSimList.length > 0) {
+                return;
+            }
+        }
+
         let newSimulation = new Simulation(simulationTitle, priceSimulation, startDateSimulation, endDateSimulation, seatsAvailable);
         cartProducts.push(newSimulation);
         // Saving array of simulation objects in local storage
@@ -39,9 +50,9 @@ window.addEventListener('load', function() {
         displayCartItemsNumber();
 
         // Displaying all simulations objects in console log
-        for (let index = 0; index < cartProducts.length; index++) {
-            console.log(cartProducts[index]);
-        }
+        // for (let index = 0; index < cartProducts.length; index++) {
+        //     console.log(cartProducts[index]);
+        // }
 
         // Pop up add to cart success message after 
         // simulation was added to cart
@@ -59,10 +70,3 @@ window.addEventListener('load', function() {
     };  
 });
 
-function displayCartItemsNumber() {
-    // This function is to display current
-    // sims within the user's cart
-    let cartNumberIcon = document.getElementById('cart-quantity');
-    let currenNumberOfSimsInCart = JSON.parse(sessionStorage.getItem('cartProducts')).length;
-    cartNumberIcon.innerHTML = currenNumberOfSimsInCart;
-}
