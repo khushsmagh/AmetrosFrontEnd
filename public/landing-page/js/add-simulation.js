@@ -30,7 +30,13 @@ window.addEventListener('load', function() {
         let newSimulation = new Simulation(simulationTitle, priceSimulation, startDateSimulation, endDateSimulation, seatsAvailable);
         cartProducts.push(newSimulation);
         // Saving array of simulation objects in local storage
-        localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+        sessionStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+
+        // Increase the number of sims within the cart icon
+        let cartNumberIcon = document.getElementById('cart-quantity');
+        let currenNumberOfSimsInCart = JSON.parse(sessionStorage.getItem('cartProducts')).length;
+        cartNumberIcon.innerHTML = currenNumberOfSimsInCart;
+
         // Displaying all simulations objects in console log
         for (let index = 0; index < cartProducts.length; index++) {
             console.log(cartProducts[index]);

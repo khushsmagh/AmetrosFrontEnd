@@ -1,4 +1,8 @@
-const listSims = JSON.parse(localStorage.getItem('cartProducts'));
+// Get list of selected sim from session storage
+const listSims = JSON.parse(sessionStorage.getItem('cartProducts'));
+
+// Reference to the tbody of table
+// on which the sin data will be displayed as row
 const tableBody = document.getElementById('table-content');
 window.addEventListener('load' , function(){
     // for each element in the data list
@@ -37,7 +41,7 @@ window.addEventListener('load' , function(){
         tableRow.appendChild(tableCellSeatAvailable);
         tableRow.appendChild(tableCellRemoveButton);
 
-        // step 4 append row to table body
+        // step 5 append row to table body
         tableBody.appendChild(tableRow);
     });   
 });
@@ -62,7 +66,7 @@ function createRemovedButton(){
             let updatedListSims = listSims.filter(sim => {
                 return sim.title !== simName;
             });
-            localStorage.setItem('cartProducts', JSON.stringify(updatedListSims));
+            sessionStorage.setItem('cartProducts', JSON.stringify(updatedListSims));
             // remove the row from the table
             currentTable.removeChild(currentRow);
         }
