@@ -37,6 +37,7 @@ window.addEventListener('load', function() {
 
     //event listner for changing partner logo
     document.getElementById('fileUploadInput').addEventListener('change', function (e) {
-        console.log(e.target.value);
+        let fileName = e.target.value.split("\\").pop();
+        document.getElementById("file-name").innerHTML = fileName;
     });
 });
