@@ -90,7 +90,7 @@ document.getElementById("terms").addEventListener("keyup",function(e){
 
 function submitForm() {
     alert(validChecked);
-    if(validEmail && validFname && validlname && !validChecked && (validPassword == validCpassword)){
+    if(validEmail && validFname && validlname && !validChecked && (validPassword === validCpassword)){
         return true;
     }
     else {
