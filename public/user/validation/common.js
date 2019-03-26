@@ -1,52 +1,107 @@
+const nameRegex = new RegExp(/^[a-zA-Z\-]+$/);
+const emailRegex = new RegExp(/^(([^<>()\[\]\.,;:\s@\A-Z"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/);
+const Passwordregex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})");
+
+//hide all the warning messages.
+document.getElementById("invalid-email").style.display = "none";
+document.getElementById("invalid-fname").style.display = "none";
+document.getElementById("invalid-lname").style.display = "none";
+document.getElementById("invalid-password").style.display = "none";
+document.getElementById("invalid-Cpassword").style.display = "none";
+document.getElementById("T&C").style.display = "none";
+
+var validEmail = "";
+var validFname = "";
+var validlname = "";
+var validPassword = "";
+var validCpassword = "";
+var validChecked = "";
 
 
-function validateUsername(){
- //   alert("work");
-    var nameRegex = new RegExp(/^[a-zA-Z\-]+$/);
-    var emailRegex = new RegExp(/^(([^<>()\[\]\.,;:\s@\A-Z"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/);
 
-    var validfirstUsername = document.getElementById("firstName").value.match(nameRegex);
-    var validLastName = document.getElementById("lastName").value.match(nameRegex);
-    var validEmail = document.getElementById("email").value.match(emailRegex);
-    var checkTNC = document.getElementById("terms").checked;
-    var validPassword = document.getElementById("password").value;
-    var validConfirmPassword = document.getElementById("confirmPassword").value;
+//event listner for email
+document.getElementById("email").addEventListener("keyup",function(e){
+    validEmail = e.target.value.match(emailRegex);
+    if(!validEmail) {
+        document.getElementById("invalid-email").style.display = "block";
+    }
+    else {
+        document.getElementById("invalid-email").style.display = "none";
+    }
+})
 
-    if(!validEmail){
-        alert("Your email is not valid.");
-        return false;
+//event listner for firstname'
+document.getElementById("firstName").addEventListener("keyup",function(e){
+     validFname = e.target.value.match(nameRegex);
+    if(!validFname) {
+        document.getElementById("invalid-fname").style.display = "block";
     }
-    else if(!validfirstUsername){
-        alert("Your first name is not valid. Only characters A-Z, a-z and '-' are  acceptable.");
-        return false;
+    else {
+        document.getElementById("invalid-fname").style.display = "none";
     }
-    else if(!validLastName){
-        alert("Your lastName name is not valid. Only characters A-Z, a-z and '-' are  acceptable.");
-        return false;
-    
+})
+
+//event listner for lastname
+document.getElementById("lastName").addEventListener("keyup",function(e){
+    validlname = e.target.value.match(nameRegex);
+    if(!validlname) {
+        document.getElementById("invalid-lname").style.display = "block";
     }
-    else if(validPassword == null || validPassword == ""){
-        alert("you have to insert password");
-        return false;
+    else {
+        document.getElementById("invalid-lname").style.display = "none";
     }
-    else if(validConfirmPassword == null || validPassword == "" ){
-        alert("you have to insert password");
-        return false;
+})
+
+//event listner for password.
+document.getElementById("password").addEventListener("keyup",function(e){
+     validPassword = e.target.value.match(Passwordregex);
+    if(!validPassword) {
+        document.getElementById("invalid-password").style.display = "block";
     }
-    else if(validPassword !== validConfirmPassword){
-        alert("check your password");
-        return false;
+    else {
+        document.getElementById("invalid-password").style.display = "none";
     }
-    else if(!checkTNC){
-        alert("you have to check the terms and conditions");
-        return false;
+})
+
+//event listner for confirm password
+document.getElementById("confirmPassword").addEventListener("keyup",function(e){
+     validCpassword = e.target.value;
+     validPassword = document.getElementById("password").value;
+    if(validCpassword != validPassword) {
+        document.getElementById("invalid-Cpassword").style.display = "block";
     }
-    else{
+    else {
+        document.getElementById("invalid-Cpassword").style.display = "none";
+    }
+})
+
+document.getElementById("terms").addEventListener("keyup",function(e){
+     validChecked = e.target.checked;
+    if(validChecked) {
+        document.getElementById("T&C").style.display = "block";
+    }
+    else {
+        document.getElementById("T&C").style.display = "none";
+        
+    }
+})
+
+
+
+function submitForm() {
+    alert(validChecked);
+    if(validEmail && validFname && validlname && !validChecked && (validPassword == validCpassword)){
         return true;
+    }
+    else {
+        return false;
     }
 }
 
-function resetForm(){
+
+
+
+function resetForm() {
     document.getElementById("signUpForm").reset();
 }
 
