@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
     <link rel="stylesheet" href="../../common styles/common.css">
+    <link rel="stylesheet" href="../css/customize-form-style.css">
+    <link rel="stylesheet" href = "../css/landing-page.css" />
     <title>Landing Page</title>
 </head>
 
@@ -24,22 +26,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Support <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Support <i class="fas fa-phone"></i></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Simulations
+                    <li class="nav-item">
+                    <a class="nav-link" href="../../account-page/user-account.html">
+                        Profile <i class="fas fa-user"></i>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Actio</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./view-cart.html"><i class="fas fa-cart-plus"></i> Cart <span class="badge badge-warning number-items-simulation">0</span></a>
+                        <a class="nav-link" href="./view-cart.html"><i class="fas fa-cart-plus"></i><span id="cart-quantity">0</span></a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -50,6 +45,7 @@
         </nav>
         <!-- End Navbar-->
         <div class="container-fluid">
+            <div id="addCart-message" class="alert alert-success text-center" role="alert">Simulation has been added successfully</div>
             <div class="row">
                 <div class="jumbotron" id='banner-background'>
                     <div class="row">
@@ -76,15 +72,15 @@
                         </div>
                         <div class="col-md-9 mt-3 simulationItems">
                             <ul class="list-group">
-                                <li class="list-group-item active title-simulation">Soft Software Simulations</li>
-                                <li class="list-group-item price-simulation">Price: $200.00 </li>
-                                <li class="list-group-item start-simulation">Start Date: </li>
-                                <li class="list-group-item end-simulation">End Date: </li>
-                                <li class="list-group-item seats-simulation">Seats avalable: <span class="badge badge-secondary">30</span></li>
+                                <li class="list-group-item sim-title text-white text-center title-simulation">Soft Software Simulations</li>
+                                <li class="list-group-item">Price: $<span class="price-simulation">400.00</span></li>
+                                <li class="list-group-item">Start Date: <span class="start-simulation">2019/07/03</span> </li>
+                                <li class="list-group-item">End Date: <span class="end-simulation">2019/09/04</span></li>
+                                <li class="list-group-item">Seats avalable: <span class="badge badge-secondary seats-simulation">30</span></li>
                             </ul>
                             <div class="d-flex justify-content-center">
                                 <a href="../../sim/sim-registration.html"><button class="btn btn-success my-4">Register</button></a>
-                                <button class="btn btn-primary my-4 ml-3">Add to cart</button>
+                                <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -94,15 +90,15 @@
                         </div>
                         <div class="col-md-9 mt-3 simulationItems">
                             <ul class="list-group">
-                                <li class="list-group-item active title-simulation">Math Simulations</li>
-                                <li class="list-group-item price-simulation">Price: $300.00</li>
-                                <li class="list-group-item start-simulation">Start Date: </li>
-                                <li class="list-group-item end-simulation">End Date: </li>
-                                <li class="list-group-item seats-simulation">Seats avalable: <span class="badge badge-secondary">30</span></li>
+                                <li class="list-group-item sim-title text-center text-white title-simulation">Math Simulations</li>
+                                <li class="list-group-item">Price: $<span class="price-simulation">300.00</span></li>
+                                <li class="list-group-item">Start Date: <span class="start-simulation">2019/01/2</span></li>
+                                <li class="list-group-item">End Date: <span class="end-simulation">2019/04/4</span></li>
+                                <li class="list-group-item">Seats avalable: <span class="badge badge-secondary seats-simulation">30</span></li>
                             </ul>
                             <div class="d-flex justify-content-center">
                                 <a href="../../sim/sim-registration.html"><a href="../../sim/sim-registration.html"><button class="btn btn-success my-4">Register</button></a></a>
-                                <button class="btn btn-primary my-4 ml-3">Add to cart</button>
+                                <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -112,15 +108,15 @@
                         </div>
                         <div class="col-md-9 mt-3 simulationItems">
                             <ul class="list-group">
-                                <li class="list-group-item active title-simulation">Science Simulations</li>
-                                <li class="list-group-item price-simulation">Price: $345.00</li>
-                                <li class="list-group-item start-simulation">Start Date: </li>
-                                <li class="list-group-item end-simulation">End Date: </li>
-                                <li class="list-group-item seats-simulation">Seats avalable: <span class="badge badge-secondary">30</span></li>
+                                <li class="list-group-item sim-title text-center text-white title-simulation">Science Simulations</li>
+                                <li class="list-group-item">Price: $<span class="price-simulation">345.00</span></li>
+                                <li class="list-group-item">Start Date: <span class="start-simulation">2019/08/05</span> </li>
+                                <li class="list-group-item">End Date: <span class="end-simulation">2019/10/07</span></li>
+                                <li class="list-group-item">Seats avalable: <span class="badge badge-secondary seats-simulation">30</span></li>
                             </ul>
                             <div class="d-flex justify-content-center">
                                 <a href="../../sim/sim-registration.html"><a href="../../sim/sim-registration.html"><button class="btn btn-success my-4">Register</button></a></a>
-                                <button class="btn btn-primary my-4 ml-3">Add to cart</button>
+                                <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
                             </div>
                         </div>
                     </div>
