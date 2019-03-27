@@ -71,8 +71,6 @@ function createRemovedButton(){
             let updatedListSims = listSims.filter(sim => {
                 return sim.title !== simName;
             });
-            // Remove the whole list sim from session storage
-            sessionStorage.removeItem('cartProducts');
             // create new list sims with updated data
             sessionStorage.setItem('cartProducts', JSON.stringify(updatedListSims));
             // remove the row from the table

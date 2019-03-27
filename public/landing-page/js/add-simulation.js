@@ -15,8 +15,8 @@ window.addEventListener('load', function() {
     // by default it is hidden 
     messageDiv.setAttribute('style', 'visibility: hidden');
 
-    // array containing the products in the cart
-    var cartProducts = [];
+    let cartProducts;
+
     // Function to add simulations to an array
     function addToCart(event){
         let buttonAdd = event.target;
@@ -41,12 +41,20 @@ window.addEventListener('load', function() {
             }
         }
 
+        // array containing the products in the cart
+        let currentSimsInCart = JSON.parse(sessionStorage.getItem('cartProducts'));
+        if (!currentSimsInCart) {
+            cartProducts = [];
+        } else {
+            cartProducts = currentSimsInCart;
+        }
+
         let newSimulation = new Simulation(simulationTitle, priceSimulation, startDateSimulation, endDateSimulation, seatsAvailable);
         cartProducts.push(newSimulation);
         // Saving array of simulation objects in local storage
         sessionStorage.setItem('cartProducts', JSON.stringify(cartProducts));
 
-        // Increase the number of sims within the cart icon
+        //Increase the number of sims within the cart icon
         displayCartItemsNumber();
 
         // Displaying all simulations objects in console log
@@ -66,7 +74,7 @@ window.addEventListener('load', function() {
 
     let addToCartButtons = document.getElementsByClassName('simulationAdd');
     for (let index = 0; index < addToCartButtons.length; index++) {
-        addToCartButtons[index].addEventListener('click', addToCart);   
+        addToCartButtons[index].addEventListener('click', addToCart);
     };  
 });
 
