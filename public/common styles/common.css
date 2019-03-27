@@ -31,13 +31,7 @@ sign-up-page css
     padding-top: 50%;
     color : rgba(131,58,180,1);
 }
-.login-text{
-    padding-top: 40%;
-    color : rgba(131,58,180,1);
-}
-.login-form{
-    padding-top: 12%;
-}
+
 .sign-up-header{
     background: rgba(131,58,180,1);
 }
@@ -47,4 +41,29 @@ sign-up-page css
 
 .sim-title {
     background: rgb(148, 56, 209);
+}
+
+
+/**
+login page css
+*/
+
+.login-text{
+    padding-top: 40%;
+    color : rgba(131,58,180,1);
+}
+.login-form{
+    padding-top: 12%;
+}
+
+/**
+payment page css
+*/
+
+.payment-form{
+    padding-top: 8%;
+}
+
+.payment-header {
+    background: rgb(52, 131, 63);
 }
