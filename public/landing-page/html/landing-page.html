@@ -11,7 +11,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="../../common styles/common.css">
     <link rel="stylesheet" href="../css/customize-form-style.css">
-    <link rel="stylesheet" href = "../css/landing-page.css" />
+    <link rel="stylesheet" href="../css/landing-page.css" />
     <title>Landing Page</title>
 </head>
 
@@ -28,102 +28,127 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Support <i class="fas fa-phone"></i></a>
                 </li>
-                    <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="../../account-page/user-account.html">
                         Profile <i class="fas fa-user"></i>
                     </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./view-cart.html"><i class="fas fa-cart-plus"></i><span id="cart-quantity">0</span></a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-        </nav>
-        <!-- End Navbar-->
-        <div class="container-fluid">
-            <div id="addCart-message" class="alert alert-success text-center" role="alert">Simulation has been added successfully</div>
-            <div class="row">
-                <div class="jumbotron" id='banner-background'>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" id='partner-logo' class="img-thumbnail rounded float-left" />
-                        </div>
-                        <div class="col-md-8" id="parner-info">
-                            <h1 id='partner-name'>Bow Valley College</h1>
-                            <p id='partner-description'>l eius voluptatibus animi placeat excepturi, a labore amet fugit id
-                                beatae, omnis, porro nulla accusamus harum?</p>
-                        </div>
-                        <div class="col-md-1">
-                            <a href="./customize-landing-page.html"><i class="far fa-edit fa-2x"></i></a>
-                        </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./view-cart.html"><i class="fas fa-cart-plus"></i><span id="cart-quantity">0</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav> <!-- End Navbar-->
+    <div class="container-fluid">
+        <div id="addCart-message" class="alert alert-success text-center" role="alert">Simulation has been added
+            successfully</div>
+        <div class="row">
+            <div class="jumbotron" id='banner-background'>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" id='partner-logo' class="img-thumbnail rounded float-left" />
                     </div>
-                </div>
-            </div>
-        <!-- content -->
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-11 ">
-                    <div class="row bg-light border border-dark rounded">
-                        <div class="col-md-3 my-3">
-                            <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
-                        </div>
-                        <div class="col-md-9 mt-3 simulationItems">
-                            <ul class="list-group">
-                                <li class="list-group-item sim-title text-white text-center title-simulation">Soft Software Simulations</li>
-                                <li class="list-group-item">Price: $<span class="price-simulation">400.00</span></li>
-                                <li class="list-group-item">Start Date: <span class="start-simulation">2019/07/03</span> </li>
-                                <li class="list-group-item">End Date: <span class="end-simulation">2019/09/04</span></li>
-                                <li class="list-group-item">Seats available: <span class="badge badge-secondary seats-simulation">30</span></li>
-                            </ul>
-                            <div class="d-flex justify-content-center">
-                                <a href="../../sim/sim-registration.html"><button class="btn btn-success my-4">Register</button></a>
-                                <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
-                            </div>
-                        </div>
+                    <div class="col-md-8" id="parner-info">
+                        <h1 id='partner-name'>Bow Valley College</h1>
+                        <p id='partner-description'>l eius voluptatibus animi placeat excepturi, a labore amet fugit id
+                            beatae, omnis, porro nulla accusamus harum?</p>
                     </div>
-                    <div class="row bg-light mt-4 border border-dark rounded">
-                        <div class="col-md-3 my-3">
-                            <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
-                        </div>
-                        <div class="col-md-9 mt-3 simulationItems">
-                            <ul class="list-group">
-                                <li class="list-group-item sim-title text-center text-white title-simulation">Math Simulations</li>
-                                <li class="list-group-item">Price: $<span class="price-simulation">300.00</span></li>
-                                <li class="list-group-item">Start Date: <span class="start-simulation">2019/01/2</span></li>
-                                <li class="list-group-item">End Date: <span class="end-simulation">2019/04/4</span></li>
-                                <li class="list-group-item">Seats available: <span class="badge badge-secondary seats-simulation">30</span></li>
-                            </ul>
-                            <div class="d-flex justify-content-center">
-                                <a href="../../sim/sim-registration.html"><a href="../../sim/sim-registration.html"><button class="btn btn-success my-4">Register</button></a></a>
-                                <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row bg-light mt-4 border border-dark rounded">
-                        <div class="col-md-3 my-3">
-                            <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
-                        </div>
-                        <div class="col-md-9 mt-3 simulationItems">
-                            <ul class="list-group">
-                                <li class="list-group-item sim-title text-center text-white title-simulation">Science Simulations</li>
-                                <li class="list-group-item">Price: $<span class="price-simulation">345.00</span></li>
-                                <li class="list-group-item">Start Date: <span class="start-simulation">2019/08/05</span> </li>
-                                <li class="list-group-item">End Date: <span class="end-simulation">2019/10/07</span></li>
-                                <li class="list-group-item">Seats available: <span class="badge badge-secondary seats-simulation">30</span></li>
-                            </ul>
-                            <div class="d-flex justify-content-center">
-                                <a href="../../sim/sim-registration.html"><a href="../../sim/sim-registration.html"><button class="btn btn-success my-4">Register</button></a></a>
-                                <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
-                            </div>
-                        </div>
+                    <div class="col-md-1">
+                        <a href="./customize-landing-page.html"><i class="far fa-edit fa-2x"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- content -->
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-11 ">
+                <div class="row bg-light border border-dark rounded">
+                    <div class="col-md-3 my-3">
+                        <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
+                    </div>
+                    <div class="col-md-9 mt-3 simulationItems">
+                        <ul class="list-group">
+                            <li class="list-group-item sim-title text-white text-center title-simulation">Soft Software
+                                Simulations</li>
+                            <li class="list-group-item">Price: $<span class="price-simulation">400.00</span></li>
+                            <li class="list-group-item">Start Date: <span class="start-simulation">2019/07/03</span>
+                            </li>
+                            <li class="list-group-item">End Date: <span class="end-simulation">2019/09/04</span></li>
+                            <li class="list-group-item">Seats available: <span class="badge badge-secondary seats-simulation">30</span></li>
+                        </ul>
+                        <div class="d-flex justify-content-center">
+                            <a href="../../sim/sim-registration.html"><button class="btn btn-success my-4">Register</button></a>
+                            <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row bg-light mt-4 border border-dark rounded">
+                    <div class="col-md-3 my-3">
+                        <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
+                    </div>
+                    <div class="col-md-9 mt-3 simulationItems">
+                        <ul class="list-group">
+                            <li class="list-group-item sim-title text-center text-white title-simulation">Math
+                                Simulations</li>
+                            <li class="list-group-item">Price: $<span class="price-simulation">300.00</span></li>
+                            <li class="list-group-item">Start Date: <span class="start-simulation">2019/01/2</span></li>
+                            <li class="list-group-item">End Date: <span class="end-simulation">2019/04/4</span></li>
+                            <li class="list-group-item">Seats available: <span class="badge badge-secondary seats-simulation">30</span></li>
+                        </ul>
+                        <div class="d-flex justify-content-center">
+                            <a href="../../sim/sim-registration.html"><a href="../../sim/sim-registration.html"><button
+                                        class="btn btn-success my-4">Register</button></a></a>
+                            <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row bg-light mt-4 border border-dark rounded">
+                    <div class="col-md-3 my-3">
+                        <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
+                    </div>
+                    <div class="col-md-9 mt-3 simulationItems">
+                        <ul class="list-group">
+                            <li class="list-group-item sim-title text-center text-white title-simulation">Science
+                                Simulations</li>
+                            <li class="list-group-item">Price: $<span class="price-simulation">345.00</span></li>
+                            <li class="list-group-item">Start Date: <span class="start-simulation">2019/08/05</span>
+                            </li>
+                            <li class="list-group-item">End Date: <span class="end-simulation">2019/10/07</span></li>
+                            <li class="list-group-item">Seats available: <span class="badge badge-secondary seats-simulation">30</span></li>
+                        </ul>
+                        <div class="d-flex justify-content-center">
+                            <a href="../../sim/sim-registration.html"><a href="../../sim/sim-registration.html"><button
+                                        class="btn btn-success my-4">Register</button></a></a>
+                            <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row content -->
+    </div><!-- end container-fluid -->
+    <footer id="footer" class="page-footer font-small blue mt-3 text-white">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <!-- Copyright -->
+                <div class="col-md-12">
+                    <div class="footer-copyright text-center">© 2019 Copyright:
+                        <a href="https://ametroslearning.com/"><span class="text-white">Ametros Learning</span></a>
+                    </div>
+                </div>
+                <!-- Copyright -->
+    
+                <!-- Contact info -->
+                <div class="col-md-12">
+                    Contact Us: <span>@ametroslearning.com</span>
+                </div>
+                <!-- Contact info -->
+            </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
