@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     //get text color
     let textColor = document.getElementById('parner-info').style.color;
     let textColorInputNode = document.getElementById('textColorInput');
@@ -10,14 +10,14 @@ window.addEventListener('load', function() {
 
     //event listner for partner name change
     const defaultPartnerName = document.getElementById('partner-name').innerHTML;
-    document.getElementById('partnerNameInput').addEventListener('keyup', function(e) {
+    document.getElementById('partnerNameInput').addEventListener('keyup', function (e) {
         let partnerNameNode = document.getElementById('partner-name');
         partnerNameNode.innerHTML = e.target.value === "" ? defaultPartnerName : e.target.value;
     });
 
     //event listner for partner description change
     const defaultPartnerDescription = "Welcome to " + defaultPartnerName;
-    document.getElementById('partnerDesriptionInput').addEventListener('keyup', function(e) {
+    document.getElementById('partnerDesriptionInput').addEventListener('keyup', function (e) {
         if (e.target.value.length > 500) {
             return;
         }
@@ -26,7 +26,7 @@ window.addEventListener('load', function() {
     });
 
     //event listner for text color on change
-    textColorInputNode.addEventListener('change', function(e) {
+    textColorInputNode.addEventListener('change', function (e) {
         document.getElementById('parner-info').style.color = e.target.value;
     });
 
@@ -37,6 +37,7 @@ window.addEventListener('load', function() {
 
     //event listner for changing partner logo
     document.getElementById('fileUploadInput').addEventListener('change', function (e) {
-        console.log(e.target.value);
+        let fileName = e.target.value.split("\\").pop();
+        document.getElementById("file-name").innerHTML = fileName;
     });
 });
