@@ -66,12 +66,12 @@
 
         /* Table Font Color */
         div.cd-body p {
-            color: darkblue;
+            color: rgb(0, 0, 100);
         }
 
         /* Module Label Font Color */
         div.cd-body h4 {
-            color:darkolivegreen
+            color:rgb(100, 100, 100);
         }
 
 /* Sidebar config */
