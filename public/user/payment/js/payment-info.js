@@ -3,6 +3,8 @@
 const tableBody = document.getElementById('table-content');
 window.addEventListener('load' , function(){
 
+    var loaderSpin = setTimeout(showPaymentPage, 3000);
+
     // Get list of selected sim from session storage
     const listSims = getLatestListSim();
 
@@ -70,3 +72,8 @@ function createHtmlElement(element) {
 function getLatestListSim() {
     return JSON.parse(sessionStorage.getItem('cartProducts'));
 }
+
+function showPaymentPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("displayPaymentInfo").style.display = "block";
+    }
