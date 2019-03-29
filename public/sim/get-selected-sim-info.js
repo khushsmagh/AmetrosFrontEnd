@@ -11,4 +11,5 @@ window.addEventListener('load', function () {
     document.getElementById("price").innerHTML = priceInfo;
     document.getElementById("startDate").innerHTML = startDateInfo;
     document.getElementById("endDate").innerHTML = endDateInfo;
+    sessionStorage.setItem('cartProducts', JSON.stringify(getSelectedInfo));
 });
