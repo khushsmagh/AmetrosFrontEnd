@@ -3,10 +3,9 @@ const partnerName = document.getElementById('partner-name');
 const partnerDescription = document.getElementById('partner-description');
 const partnerLogo = document.getElementById('partner-logo');
 const partnerBanner = document.getElementById('banner-background');
-const wholePage = document.getElementsByTagName('body');
 
 window.addEventListener('load', function() {
-    //displayPartnerInfo();
+    displayPartnerInfo();
     //displaySimulationsOfPartner();
 });
 
@@ -18,13 +17,16 @@ function displayPartnerInfo() {
      *  "name" : "Bow Valley",
      *  "url" : "bvc",
      *  "description" : "lorem lorem lorem",
-     *  "logo_url" : "https://bvc.logo.png",
-     *  "backgroundColor" : "#ff076",
-     *  "textColor" : "#000",
-     *  "theme" : "theme1"
+     *  "logoUrl" : "https://bvc.logo.png",
+     *  "styles" : {
+        *  "textColor" : "#000",
+        *  "color1" : "",
+        *  "color2" : "",
+        *  "color3" : ""
+     *  }
      * }
     */
-    const URL = "https://jsonplaceholder.typicode.com/users";
+    const URL = "http://localhost:8000/styles/bvc";
     
     fetch(URL)
         .then(response => {
@@ -34,13 +36,33 @@ function displayPartnerInfo() {
             // mapping data to html elements for partner info
             partnerName.innerHTML = jsonData.name;
             partnerDescription.innerHTML = jsonData.description;
-            partnerLogo.setAttribute('src', jsonData.logo_url);
-            partnerBanner.style.backgroundColor = jsonData.backgroundColor;
-            partnerBanner.style.color = jsonData.textColor;
-            // apply partner current theme to whole page
-            wholePage.setAttribute('class', jsonData.theme);
+            partnerLogo.setAttribute('src', jsonData.logoUrl);
+            // apply partner current color theme to whole page
+            applyColorTheme(jsonData.styles.color1, jsonData.styles.color2, jsonData.styles.color3,
+                jsonData.styles.textColor);
         })
         .catch(err => console.log(err));
+}
+
+function applyColorTheme(color1, color2, color3, textColor) {
+    console.log(textColor);
+    
+    //update banner background color
+    document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
+    //update nav background color
+    document.getElementsByClassName('navbar')[0].style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
+    //update footer
+    document.getElementById('footer').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
+    //update banner text color
+    document.getElementById('banner-background').style.color = `${textColor}`;
+
+    // select all a tags within navbar
+    let aTags = document.getElementsByClassName('navbar')[0].getElementsByTagName('a');
+    for (let index = 0; index < aTags.length; index++) {
+        aTags[index].style.color = `${textColor}`;
+    }
+    document.getElementsByClassName('navbar')[0].style.color = `${textColor}`;
+    document.getElementById('footer').style.color = `${textColor}`;
 }
 
 function displaySimulationsOfPartner() {
@@ -168,39 +190,6 @@ function populateSims(jsonObject) {
         let addToCartButton = document.createElement('button');
         addToCartButton.setAttribute('class', 'btn btn-primary my-4 ml-3');
         addToCartButton.innerHTML = "Add To Cart";
-
-        // Handle event click for add to cart button
-        let counter = 0;
-        addToCartButton.addEventListener('click', function () {
-            counter++;
-            if (counter > 1) {
-                return;
-            }
-            // access to sims col info
-            let parentNode = this.parentElement.parentElement;
-            // Retrieve sim data
-            let simName = parentNode.firstChild.childNodes[0].innerHTML;
-            let simPrice = parentNode.firstChild.childNodes[1].innerHTML;
-            let simStartDate = parentNode.firstChild.childNodes[2].innerHTML;
-            let simEndDate = parentNode.firstChild.childNodes[3].innerHTML;
-            let simSeatAvailable = parentNode.firstChild.childNodes[4].innerHTML;
-
-            // Build Sim Obj containing sim data
-            let simObj = {
-                simName: simName,
-                simPrice: simPrice,
-                simStartDate: simStartDate,
-                simEndDate: simEndDate,
-                simSeatAvailable: simSeatAvailable
-            };
-
-            // add clicked sim obj to list
-            simList.push(simObj);
-            console.log(simList);
-
-            // save list of simObj to session storage
-            sessionStorage.setItem('simsList', JSON.stringify(simList));
-        });
 
         // append two buttons to container
         buttonsContainer.appendChild(aNode);

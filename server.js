@@ -20,11 +20,14 @@ app.get('/', (req, res) => {
 app.get('/styles/bvc', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.status(200).json({
+        name : "Bow Valley College",
+        description : "lorem lorem",
+        "logoUrl": "https://geology.com/google-earth/google-earth.jpg",
         styles: {
-            color1: "rgba(131,58,180,1)",
+            color1: "rgba(131,111,180,1)",
             color2: "rgba(253,29,29,1)",
             color3: "rgba(252,176,69,1)",
-            textColor : "black"
+            textColor : "white"
         },
         Status: "success"
     });
