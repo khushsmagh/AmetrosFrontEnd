@@ -45,7 +45,6 @@ function displayPartnerInfo() {
 }
 
 function applyColorTheme(color1, color2, color3, textColor) {
-    console.log(textColor);
     
     //update banner background color
     document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;

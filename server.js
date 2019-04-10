@@ -21,7 +21,7 @@ app.get('/styles/bvc', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.status(200).json({
         name : "Bow Valley College",
-        description : "lorem lorem",
+        description : "Welcome to our page.",
         "logoUrl": "https://geology.com/google-earth/google-earth.jpg",
         styles: {
             color1: "rgba(131,111,180,1)",
@@ -31,6 +31,62 @@ app.get('/styles/bvc', (req, res) => {
         },
         Status: "success"
     });
+});
+
+app.get('/sims', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.status(200).json({ 
+        sims: [{
+                simID: 1,
+                simName: "Soft Software Simulations",
+                simPhotoURL: "",
+                simPrice: 300,
+                simStartDate: "",
+                simEndDate: "",
+                simLimitSeats: 30
+            },
+            {
+                simID: 2,
+                simName: "Math Simulations",
+                simPhotoURL: "",
+                simPrice: 400,
+                simStartDate: "",
+                simEndDate: "",
+                simLimitSeats: 35
+            },
+            {
+                simID: 3,
+                simName: "Science Simulations",
+                simPhotoURL: "",
+                simPrice: 450,
+                simStartDate: "",
+                simEndDate: "",
+                simLimitSeats: 40
+            }
+        ],
+        Status : "Success"
+    });
+});
+
+app.post('/partner', (req, res) => {
+
+    let partnerName = req.body.name;
+    let partnerDescription = req.body.description;
+    let partnerUrl = req.body.url;
+    let partnerLogo = req.body.logo;
+    let textColor = req.body.styles.textColor;
+    let color1 = req.body.styles.color1;
+    let color2 = req.body.styles.color2;
+    let color3 = req.body.styles.color3;
+
+    console.log(partnerName);
+    console.log(partnerDescription);
+    console.log(partnerUrl);
+    console.log(partnerLogo);
+    console.log(textColor);
+    console.log(color1);
+    console.log(color2);
+    console.log(color3);
 });
 
 app.listen(app.get('port'), () => {

@@ -21,35 +21,44 @@ window.addEventListener('load', function () {
         partnerDescriptionNode.innerHTML = e.target.value === "" ? defaultPartnerDescription : e.target.value;
     });
 
-    //event listner for text color on change
-    textColorInputNode.addEventListener('change', function (e) {
-        document.getElementById('parner-info').style.color = e.target.value;
-    });
-
     //get color input node refs
     let color1InputNode = document.getElementById('color1Input');
     let color2InputNode = document.getElementById('color2Input');
     let color3InputNode = document.getElementById('color3Input');
 
-    //function to update color in dom
-    function updateColor(color1, color2, color3) {
+    function updateColor(color1, color2, color3, textColor) {
+        console.log(color1 + " " + color2);
         //update banner background color
         document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
         //update nav background color
         document.getElementsByClassName('navbar')[0].style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
         //update footer
         document.getElementById('footer').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
+        //update banner text color
+        document.getElementById('banner-background').style.color = `${textColor}`;
+
+        // select all a tags within navbar
+        let aTags = document.getElementsByClassName('navbar')[0].getElementsByTagName('a');
+        for (let index = 0; index < aTags.length; index++) {
+            aTags[index].style.color = `${textColor}`;
+        }
+        document.getElementsByClassName('navbar')[0].style.color = `${textColor}`;
+        document.getElementById('footer').style.color = `${textColor}`;
     }
 
     //add event listner for color input change
     color1InputNode.addEventListener('change', function(e) {
-        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value)
+        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value, textColorInputNode.value);
     });
     color2InputNode.addEventListener('change', function (e) {
-        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value)
+        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value, textColorInputNode.value);
     });
     color3InputNode.addEventListener('change', function (e) {
-        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value)
+        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value, textColorInputNode.value);
+    });
+    //event listner for text color on change
+    textColorInputNode.addEventListener('change', function (e) {
+        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value, textColorInputNode.value);
     });
 
     //event listner for changing partner logo
