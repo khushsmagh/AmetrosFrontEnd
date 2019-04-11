@@ -3,10 +3,6 @@ window.addEventListener('load', function () {
     let textColor = document.getElementById('parner-info').style.color;
     let textColorInputNode = document.getElementById('textColorInput');
     textColorInputNode.value = textColor === "" ? "#010101" : textColor;
-    //get banner background color
-    let bannerBgColor = document.getElementById('banner-background').style.backgroundColor;
-    let bannerBackgroundInputNode = document.getElementById('bannerBackgroundInput');
-    bannerBackgroundInputNode.value = bannerBgColor === "" ? "#E9ECEF" : bannerBgColor;
 
     //event listner for partner name change
     const defaultPartnerName = document.getElementById('partner-name').innerHTML;
@@ -30,9 +26,30 @@ window.addEventListener('load', function () {
         document.getElementById('parner-info').style.color = e.target.value;
     });
 
-    //event listner for banner background on change
-    bannerBackgroundInputNode.addEventListener('change', function (e) {
-        document.getElementById('banner-background').style.backgroundColor = e.target.value;
+    //get color input node refs
+    let color1InputNode = document.getElementById('color1Input');
+    let color2InputNode = document.getElementById('color2Input');
+    let color3InputNode = document.getElementById('color3Input');
+
+    //function to update color in dom
+    function updateColor(color1, color2, color3) {
+        //update banner background color
+        document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
+        //update nav background color
+        document.getElementsByClassName('navbar')[0].style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
+        //update footer
+        document.getElementById('footer').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
+    }
+
+    //add event listner for color input change
+    color1InputNode.addEventListener('change', function(e) {
+        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value)
+    });
+    color2InputNode.addEventListener('change', function (e) {
+        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value)
+    });
+    color3InputNode.addEventListener('change', function (e) {
+        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value)
     });
 
     //event listner for changing partner logo
