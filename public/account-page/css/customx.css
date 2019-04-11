@@ -2,91 +2,94 @@
 
 /* Top Nav-bar */
 
-    /* Background Color */
+    /* 0 - Background Color */
     .custom-nav {
-        background-image: linear-gradient(to left,rgb(245, 0, 39), rgb(132, 46, 178));
+        background-image: linear-gradient(to left,rgb(50, 50, 50), rgb(50, 50, 50));
     }
 
-    /* Nav-bar Icons color */
+    /* 1 - Nav-bar Icons color */
     i.fas,
     i.fab {
     color: rgb(255, 255, 255);
     }
 
-    /* Search Icon */
+    /* 2 - Search Icon */
     i.fa-search {
-        color: rgb(33, 37, 41);
+        color: rgb(255, 255, 255);
     }
 
-    /* Badge Counter */
+    /* 3 - Badge Counter */
     .badge-value {
-        color: rgb(33, 37, 41);
+        color: rgb(255, 255, 255);
         }
+
+    /* 4 - Button color */
+    .custom-btn {
+        background-image: linear-gradient(to left,rgb(50, 50, 50), rgb(50, 50, 50));
+        color:linear-gradient(to left,rgb(33, 37, 41),rgb(33, 37, 41));
+    }
 
 /* Main Content */
 
-    /* Content Background */
+    /* 5 - Content Background */
     #content {
-        background-image: linear-gradient(rgb(233, 236, 239), rgb(233, 236, 239));
+        background-image: linear-gradient(to left,rgb(50, 50, 50), rgb(50, 50, 50));
     } 
 
-    /* Button color */
-    .custom-btn {
-        background-image: linear-gradient(rgb(249, 195, 32), rgb(249, 195, 32));
-        color:linear-gradient(rgb(33, 37, 41),rgb(33, 37, 41));
+    /* 6 - Card Header Background */
+    div.cd-header {
+        background-image: linear-gradient(to left,rgb(50, 50, 50), rgb(50, 50, 50));
     }
 
-    /* Simulations Card */
-        /* Card Header Background */
-        div.cd-header {
-            background-image: linear-gradient(rgb(149, 36, 208), rgb(149, 36, 208));
-        }
+    /* 7 - Card Header Font */
+    div.cd-header h4 {
+        color: rgb(255, 255, 255);
+    }
 
-        /* Card Header Font */
-        div.cd-header h4 {
-            color: rgb(255, 255, 255);
-        }
+    /* 8 - Card Body Background */
+    div.cd-body {
+        background-image: linear-gradient(to left,rgb(50, 50, 50), rgb(50, 50, 50));
+    }
 
-        /* Card Body Background */
-        div.cd-body {
-            background-image: linear-gradient(rgb(248, 249, 250), rgb(248, 249, 250));
-        }
+    /* 9 - Table Background */
+    tbody.tb-body tr td{
+        background-image: linear-gradient(to left,rgb(50, 50, 50), rgb(50, 50, 50));
+    }
 
-        /* Table Background */
-        tbody.tb-body tr td{
-            background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
-            color: rgb(33, 37, 41);
-        }
+    /* 10 - Hovering color */
+    div.table-responsive table tbody td.table-data:hover {
+        background-image: linear-gradient(to left,rgb(50, 50, 50), rgb(50, 50, 50));
+        color: rgb(245, 245, 245);
+    }
 
-        /* Hovering color */
-        div.table-responsive table tbody td.table-data:hover {
-            background-image: linear-gradient(rgb(149, 36, 208), rgb(132, 46, 178));
-            color: rgb(255, 255, 255);
-        }
+    /* 11 - Simulations Table Font Color */
+    tbody.tb-body tr {
+        color: rgb(255, 255, 255);
+    }
 
-        /* Table Font Color */
-        div.cd-body p {
-            color: rgb(0, 0, 100);
-        }
+    /* 12 - Simulation Details Table Font Color */
+    div.cd-body p {
+        color: rgb(255, 255, 255);
+    }
 
-        /* Module Label Font Color */
-        div.cd-body h4 {
-            color:rgb(100, 100, 100);
-        }
+    /* 13 - Module Label Font Color */
+    div.cd-body h4 {
+        color: rgb(255, 255, 255);
+    }
 
-/* Sidebar config */
+/* Sidebar */
 
-    /* Background Color */
+    /* 14 - Background Color */
     .custom-sidebar {
-        background-image: linear-gradient(to left, rgb(132, 46, 178), rgb(112, 26, 158));
+        background-image: linear-gradient(to left,rgb(50, 50, 50), rgb(50, 50, 50));
     }
 
-    /* Icon Color */
+    /* 15 - Icon Color */
     i.fas.fa-fw.icon-sidebar  {
         color: rgb(255, 255, 255);
     }
 
-    /* Font Color */
+    /* 16 - Font Color */
     .custom-sidebar span {
         color: rgb(255, 255, 255);
     }
@@ -94,16 +97,23 @@
 
 
 /* Footer */
+
+    /* 17 - Footer Background */
     .sticky-footer{
-        background-image: linear-gradient(to left,rgb(245, 0, 39), rgb(132, 46, 178));
+        background-image: linear-gradient(to left,rgb(50, 50, 50), rgb(50, 50, 50));
     }
 
+    /* 18 - Footer Text */
     #copyright {
-        color: whitesmoke;
+        color: rgb(255, 255, 255);
     }
 
-/* Font Type */
-
+    /* 19 - Font Type */
     .custom-font {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Arial;
+    }
+
+    /* 20 - Start Button Text Color */
+    #start-button {
+        color: rgb(255, 255, 255);
     }
