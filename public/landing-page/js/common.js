@@ -14,7 +14,7 @@ const partnerName = document.getElementById('partner-name');
 const partnerDescription = document.getElementById('partner-description');
 const partnerLogo = document.getElementById('partner-logo');
 const partnerBanner = document.getElementById('banner-background');
-const messageDiv = document.getElementById('addCart-message');
+let messageDiv = document.getElementById('addCart-message');
 // by default it is hidden 
 messageDiv.setAttribute('style', 'visibility: hidden');
 let cartProducts;
@@ -36,6 +36,8 @@ function displayPartnerInfo() {
             return response.json();
         })
         .then(jsonData => {
+            // store the partner data into session storage
+            sessionStorage.setItem('partnerData', JSON.stringify(jsonData));
             // mapping data to html elements for partner info
             partnerName.innerHTML = jsonData.name;
             partnerDescription.innerHTML = jsonData.description;
@@ -87,8 +89,6 @@ function displaySimulationsOfPartner() {
         })
         .then(jsonData => {
             // populate sims using response data
-            console.log(jsonData.sims);
-            
             populateSims(jsonData.sims);
         })
         .catch(error => console.log(error));
