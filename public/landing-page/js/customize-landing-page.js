@@ -65,7 +65,7 @@ window.addEventListener('load', function () {
 
     //submit btn event listner
     document.getElementById('submitCustomizeForm').addEventListener('click', function (e) {
-       const postUrl = "https://localhost:8000/partner";
+       const postUrl = "http://localhost:8000/partner";
        const data = {
            name : "Bow Valley College",
            description : "welcome to our page.",
