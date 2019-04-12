@@ -57,11 +57,6 @@ window.addEventListener('load', function() {
         //Increase the number of sims within the cart icon
         displayCartItemsNumber();
 
-        // Displaying all simulations objects in console log
-        // for (let index = 0; index < cartProducts.length; index++) {
-        //     console.log(cartProducts[index]);
-        // }
-
         // Pop up add to cart success message after 
         // simulation was added to cart
         messageDiv.setAttribute('style', 'visibility: visible');

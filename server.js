@@ -41,28 +41,28 @@ app.get('/sims', (req, res) => {
         sims: [{
                 simID: 1,
                 simName: "Soft Software Simulations",
-                simPhotoURL: "",
+                simPhotoURL: "https://geology.com/google-earth/google-earth.jpg",
                 simPrice: 300,
-                simStartDate: "",
-                simEndDate: "",
+                simStartDate: "2019-01-12",
+                simEndDate: "2020-01-12",
                 simLimitSeats: 30
             },
             {
                 simID: 2,
                 simName: "Math Simulations",
-                simPhotoURL: "",
+                simPhotoURL: "http://shs.ssd6.org/files/2016/08/Wordle-Math.png",
                 simPrice: 400,
-                simStartDate: "",
-                simEndDate: "",
+                simStartDate: "2019-03-22",
+                simEndDate: "2020-03-22",
                 simLimitSeats: 35
             },
             {
                 simID: 3,
                 simName: "Science Simulations",
-                simPhotoURL: "",
+                simPhotoURL: "https://risnews.com/_flysystem/s3/styles/content_sm/s3/2018-11/AI-20171012113039221.jpg?itok=oPpT7_5r",
                 simPrice: 450,
-                simStartDate: "",
-                simEndDate: "",
+                simStartDate: "2019-04-12",
+                simEndDate: "2020-04-12",
                 simLimitSeats: 40
             }
         ],

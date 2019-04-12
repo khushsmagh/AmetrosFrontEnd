@@ -2,7 +2,7 @@
 // on which the sin data will be displayed as row
 const tableBody = document.getElementById('table-content');
 window.addEventListener('load' , function(){
-
+    displayCartItemsNumber();
     // Get list of selected sim from session storage
     const listSims = getLatestListSim();
 
