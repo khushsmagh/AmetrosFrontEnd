@@ -72,23 +72,7 @@ app.get('/sims', (req, res) => {
 
 app.post('/partner', (req, res) => {
 
-    let partnerName = req.body.name;
-    let partnerDescription = req.body.description;
-    let partnerUrl = req.body.url;
-    let partnerLogo = req.body.logo;
-    let textColor = req.body.styles.textColor;
-    let color1 = req.body.styles.color1;
-    let color2 = req.body.styles.color2;
-    let color3 = req.body.styles.color3;
-
-    console.log(partnerName);
-    console.log(partnerDescription);
-    console.log(partnerUrl);
-    console.log(partnerLogo);
-    console.log(textColor);
-    console.log(color1);
-    console.log(color2);
-    console.log(color3);
+    console.log(req.body);
     res.status(200).json({
         Status: "success"
     });
