@@ -56,6 +56,10 @@ login page css
     padding-top: 12%;
 }
 
+.login-btn{
+    background: rgba(131,58,180,1);
+}
+
 /**
 payment page css
 */
