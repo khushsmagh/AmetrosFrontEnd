@@ -22,12 +22,14 @@ app.get('/styles/bvc', (req, res) => {
     res.status(200).json({
         name : "Bow Valley College",
         description : "Welcome to our page.",
-        "logoUrl": "https://geology.com/google-earth/google-earth.jpg",
+        logoUrl: "https://geology.com/google-earth/google-earth.jpg",
         styles: {
-            color1: "rgba(131,111,180,1)",
-            color2: "rgba(253,29,29,1)",
-            color3: "rgba(252,176,69,1)",
-            textColor : "white"
+            color1: "white",
+            color2: "rgba(131,111,180,1)",
+            color3: "rgba(253,29,29,1)",
+            color4: "rgba(252,176,69,1)",
+            color5: "rgba(244,244,244,1)",
+            color6: "rgba(255,255,255,1)"
         },
         Status: "success"
     });
@@ -87,6 +89,9 @@ app.post('/partner', (req, res) => {
     console.log(color1);
     console.log(color2);
     console.log(color3);
+    res.status(200).json({
+        Status: "success"
+    });
 });
 
 app.listen(app.get('port'), () => {

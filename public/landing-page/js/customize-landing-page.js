@@ -25,8 +25,10 @@ window.addEventListener('load', function () {
     let color1InputNode = document.getElementById('color1Input');
     let color2InputNode = document.getElementById('color2Input');
     let color3InputNode = document.getElementById('color3Input');
+    let color4InputNode = document.getElementById('color4Input');
+    let color5InputNode = document.getElementById('color5Input');
 
-    function updateColor(color1, color2, color3, textColor) {
+    function updateColor(textColor, color1, color2, color3) {
         console.log(color1 + " " + color2);
         //update banner background color
         document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
@@ -48,22 +50,53 @@ window.addEventListener('load', function () {
 
     //add event listner for color input change
     color1InputNode.addEventListener('change', function(e) {
-        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value, textColorInputNode.value);
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value);
     });
     color2InputNode.addEventListener('change', function (e) {
-        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value, textColorInputNode.value);
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value);
     });
     color3InputNode.addEventListener('change', function (e) {
-        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value, textColorInputNode.value);
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value);
     });
     //event listner for text color on change
     textColorInputNode.addEventListener('change', function (e) {
-        updateColor(color1InputNode.value, color2InputNode.value, color3InputNode.value, textColorInputNode.value);
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value);
     });
 
-    //event listner for changing partner logo
-    document.getElementById('fileUploadInput').addEventListener('change', function (e) {
-        let fileName = e.target.value.split("\\").pop();
-        document.getElementById("file-name").innerHTML = fileName;
+    //submit btn event listner
+    document.getElementById('submitCustomizeForm').addEventListener('click', function (e) {
+       const postUrl = "https://localhost:8000/partner";
+       const data = {
+           name : "Bow Valley College",
+           description : "welcome to our page.",
+           url : "bvc",
+           logo : "bvc.ca",
+           color1 : textColorInputNode.value,
+           color2 : color1InputNode.value,
+           color3 : color2InputNode.value,
+           color4 : color3InputNode.value,
+           color5 : color4InputNode.value,
+           color6 : color5InputNode.value,
+       }
+       const postBody = {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache", 
+            credentials: "same-origin", 
+            headers: {
+                "Content-Type": "application/json",
+            },
+            redirect: "follow", 
+            referrer: "no-referrer",
+            body: JSON.stringify(data),
+       };
+       fetch(postUrl, postBody)
+        .then(console.log)
+        .catch(console.log);
+    });
+
+    //cancel btn event listner
+    document.getElementById('cancelCustomizeForm').addEventListener('click', function (e) {
+        window.location.href = "../html/landing-page.html";
     });
 });

@@ -33,10 +33,6 @@
                         Profile <i class="fas fa-user"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./view-cart.html"><i class="fas fa-cart-plus"></i><span
-                            id="cart-quantity">0</span></a>
-                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -68,21 +64,16 @@
                 <b>Customize Information</b>
             </h5>
             <div class="card-body bg-light">
-                <form action="./landing-page.html">
+                <form onsubmit="return false">
                     <div class="form-group">
                         <label for="partnerName" class="">Partner Name: </label>
                         <input type="text" id="partnerNameInput" class="form-control" placeholder="name">
                         <label for="partnerName" class="mt-3">Partner description: </label>
                         <textarea class="form-control" id="partnerDesriptionInput" rows="3"></textarea>
-                        <label class="mt-3" for="parnerUrl">Partner URL: </label>
+                        <label class="mt-3" for="partnerUrl">Partner URL: </label>
                         <input type="text" class="form-control" placeholder="URL: i.e /bvc">
-                        <label class="mt-3" for="parnerLogo">Logo: </label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="fileUploadInput">
-                            <label class="custom-file-label" id="file-name" for="validatedCustomFile">Choose
-                                file...</label>
-                            <div class="invalid-feedback">Example invalid custom file feedback</div>
-                        </div>
+                        <label class="mt-3" for="parnerLogo">Logo URL: </label>
+                        <input type="text"class="form-control" placeholder="https://live.staticflickr.com/8513/8567168930_9ef2dbfea7_k.jpg"/>
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -120,10 +111,28 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="mt-3 mr-2" for="color-4">
+                                        Color-4:
+                                    </label>
+                                    <input class="form-control form-control-lg" id='color4Input' type="color">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="mt-3 mr-2" for="color-5">
+                                        Color-5:
+                                    </label>
+                                    <input class="form-control form-control-lg" id='color5Input' type="color">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-4"></div>
                             <div class="col-4 d-flex justify-content-center">
-                                <button class="btn btn-md sign-up-btn text-light mt-3 mr-3">Confirm</button>
-                                <button class="btn btn-md sign-up-btn text-light mt-3">Cancel</button>
+                                <button id='submitCustomizeForm' class="btn btn-md sign-up-btn text-light mt-3 mr-3">Confirm</button>
+                                <button id='cancelCustomizeForm' class="btn btn-md sign-up-btn text-light mt-3">Cancel</button>
                             </div>
                             <div class="col-4"></div>
                         </div>

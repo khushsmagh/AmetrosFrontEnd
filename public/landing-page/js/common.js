@@ -39,12 +39,12 @@ function displayPartnerInfo() {
             partnerLogo.setAttribute('src', jsonData.logoUrl);
             // apply partner current color theme to whole page
             applyColorTheme(jsonData.styles.color1, jsonData.styles.color2, jsonData.styles.color3,
-                jsonData.styles.textColor);
+                jsonData.styles.color4);
         })
         .catch(err => console.log(err));
 }
 
-function applyColorTheme(color1, color2, color3, textColor) {
+function applyColorTheme(textColor, color1, color2, color3) {
     
     //update banner background color
     document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
