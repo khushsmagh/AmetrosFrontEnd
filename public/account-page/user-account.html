@@ -13,8 +13,7 @@
 
     <!-- Custom fonts-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles-->
@@ -34,7 +33,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../landing-page/html/landing-page.html">
                 <div class="sidebar-brand-icon">
-                    <img src="img/profile.jpg" class="rounded-circle img-fluid" style="height: 70px;">
+                    <img id="avatar" src="img/default.png" class="rounded-circle img-fluid" style="height: 70px;">
                 </div>
             </a>
             <br />
@@ -43,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="user-account.html">
                     <i class="fas fa-fw fa-tachometer-alt icon-sidebar"></i>
                     <span class="custom-font">Dashboard</span>
                 </a>
@@ -52,7 +51,7 @@
 
             <!-- Nav Item - Simulations -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="user-account.html">
                     <i class="fas fa-fw fa-folder icon-sidebar"></i>
                     <span class="custom-font">Simulations</span>
                 </a>
@@ -60,7 +59,7 @@
 
             <!-- Nav Item - Account -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="user-account.html">
                     <i class="fas fa-fw fa-user icon-sidebar"></i>
                     <span class="custom-font">Account</span>
                 </a>
@@ -68,7 +67,7 @@
 
             <!-- Nav Item - Settings -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="user-account.html">
                     <i class="fas fa-fw fa-cogs icon-sidebar"></i>
                     <span class="custom-font">Settings</span>
                 </a>
@@ -76,7 +75,7 @@
 
             <!-- Nav Item - Log out -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="user-account.html">
                     <i class="fas fa-fw fa-sign-out-alt icon-sidebar"></i>
                     <span class="custom-font">Log out</span>
                 </a>
@@ -98,11 +97,9 @@
                 <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow custom-nav">
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small custom-font"
-                                placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small custom-font" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn custom-btn" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -116,18 +113,15 @@
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn custom-btn" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -140,16 +134,15 @@
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
 
                                 <!-- Counter - Alerts -->
                                 <span class="badge badge-warning badge-counter badge-value">3+</span>
                             </a>
                             <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
                                     Notifications
                                 </h6>
@@ -194,14 +187,13 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline small custom-font">Username</span>
                                 <i class="fas fa-fw fa-user-alt"></i>
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2"></i>
                                     Account
@@ -242,43 +234,34 @@
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                             <tbody class="tb-body">
                                                 <tr class="table-row">
-                                                    <td class="table-data custom-font"
-                                                        onclick="showDetails(this.innerHTML);">CHANGE MANAGEMENT</td>
+                                                    <td class="table-data custom-font" onclick="showDetails(this.innerHTML);">CHANGE MANAGEMENT</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="table-data custom-font"
-                                                        onclick="showDetails(this.innerHTML);">COLLABORATION</td>
+                                                    <td class="table-data custom-font" onclick="showDetails(this.innerHTML);">COLLABORATION</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="table-data custom-font"
-                                                        onclick="showDetails(this.innerHTML);">CORPORATE COMMUNICATION
+                                                    <td class="table-data custom-font" onclick="showDetails(this.innerHTML);">CORPORATE COMMUNICATION
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="table-data custom-font"
-                                                        onclick="showDetails(this.innerHTML);">CRISIS COMMUNICATION</td>
+                                                    <td class="table-data custom-font" onclick="showDetails(this.innerHTML);">CRISIS COMMUNICATION</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="table-data custom-font"
-                                                        onclick="showDetails(this.innerHTML);">DATA STORYTELLING</td>
+                                                    <td class="table-data custom-font" onclick="showDetails(this.innerHTML);">DATA STORYTELLING</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="table-data custom-font"
-                                                        onclick="showDetails(this.innerHTML);">KNOWLEDGE TRANSLATION
+                                                    <td class="table-data custom-font" onclick="showDetails(this.innerHTML);">KNOWLEDGE TRANSLATION
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="table-data custom-font"
-                                                        onclick="showDetails(this.innerHTML);">NEGOTIATION</td>
+                                                    <td class="table-data custom-font" onclick="showDetails(this.innerHTML);">NEGOTIATION</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="table-data custom-font"
-                                                        onclick="showDetails(this.innerHTML);">PERSUASION</td>
+                                                    <td class="table-data custom-font" onclick="showDetails(this.innerHTML);">PERSUASION</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="table-data custom-font"
-                                                        onclick="showDetails(this.innerHTML);">SOCIAL WORK (INTERVIEWING
-                                                        SKILLS)</td>
+                                                    <td class="table-data custom-font" onclick="showDetails(this.innerHTML);">SOCIAL WORK (INTERVIEWING SKILLS)
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -293,13 +276,11 @@
 
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
-                                <div
-                                    class="cd-header card-header py-3 d-sm-flex align-items-center justify-content-between">
+                                <div class="cd-header card-header py-3 d-sm-flex align-items-center justify-content-between">
                                     <h4 class="mb-0 custom-font" id="title-details">Details</h4>
-                                    <a href="#" class="d-sm-inline-block btn btn-sm shadow-sm custom-btn"
-                                        onclick="alert('Launch simulation...')">
+                                    <a href="#" class="d-sm-inline-block btn btn-sm shadow-sm custom-btn" onclick="alert('Launch simulation...')">
                                         <i class="fas fa-play fa-sm"></i>
-                                        <span class="custom-font">Start</span>
+                                        <span class="custom-font" id="start-button">Start</span>
                                     </a>
                                 </div>
                                 <div class="card-body cd-body">
@@ -319,8 +300,8 @@
                                             <span id="module1Score" class="custom-font">1</span>%</span>
                                     </h4>
                                     <div class="progress mb-4">
-                                        <div id="bar1" class="progress-bar bg-danger" role="progressbar"
-                                            style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                        <div id="bar1" class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+                                            aria-valuemax="100">
                                         </div>
                                     </div>
                                     <h4 class="small custom-font">Module 2
@@ -328,8 +309,8 @@
                                             <span id="module2Score" class="custom-font">2</span>%</span>
                                     </h4>
                                     <div class="progress mb-4">
-                                        <div id="bar2" class="progress-bar bg-warning" role="progressbar"
-                                            style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                                        <div id="bar2" class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+                                            aria-valuemax="100">
                                         </div>
                                     </div>
                                     <h4 class="small custom-font">Module 3
@@ -337,16 +318,14 @@
                                             <span id="module3Score" class="custom-font">3</span>%</span>
                                     </h4>
                                     <div class="progress mb-4">
-                                        <div id="bar3" class="progress-bar" role="progressbar" style="width: 60%"
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div id="bar3" class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small custom-font">Module 4
                                         <span class="float-right">
                                             <span id="module4Score" class="custom-font">4</span>%</span>
                                     </h4>
                                     <div class="progress mb-4">
-                                        <div id="bar4" class="progress-bar bg-info" role="progressbar"
-                                            style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                        <div id="bar4" class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
                                         </div>
                                     </div>
                                     <h4 class="small custom-font">Module 5
@@ -354,8 +333,7 @@
                                             <span id="module5Score" class="custom-font">5</span>%</span>
                                     </h4>
                                     <div class="progress">
-                                        <div id="bar5" class="progress-bar bg-success" role="progressbar"
-                                            style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                                        <div id="bar5" class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
                                             aria-valuemax="100"></div>
                                     </div>
                                 </div>
@@ -387,8 +365,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -414,7 +391,8 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this page-->
-    <script src="js/custom.js"></script>
+    <script src="js/mockupData.js"></script>
+    <script src="js/api-css-adapter.js"></script>
 
 </body>
 
