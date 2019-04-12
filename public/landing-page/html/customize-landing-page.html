@@ -9,7 +9,6 @@
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../common styles/common.css">
     <link rel='stylesheet' href="../css/customize-form-style.css">
     <title>Customize Landing Page</title>
 </head>
@@ -43,27 +42,21 @@
             </form>
         </div>
     </nav> <!-- End Navbar-->
-    <div class="container-fluid">
+    <div class="jumbotron" id='banner-background'>
         <div class="row">
-            <div class="jumbotron" id='banner-background'>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" id='partner-logo'
-                            class="img-thumbnail rounded float-left" />
-                    </div>
-                    <div class="col-md-9" id="parner-info">
-                        <h1 id='partner-name'>Bow Valley College</h1>
-                        <p id='partner-description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error,
-                            distinctio quo! Cumque tenetur nihil eius voluptatibus animi placeat excepturi, a labore
-                            amet fugit id beatae, omnis, porro nulla accusamus harum?</p>
-                    </div>
-                </div>
+            <div class="col-md-3">
+                <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" id='partner-logo' class="img-thumbnail rounded float-left" />
+            </div>
+            <div class="col-md-9" id="parner-info">
+                <h1 id='partner-name'>Bow Valley College</h1>
+                <p id='partner-description'>l eius voluptatibus animi placeat excepturi, a labore amet fugit id
+                    beatae, omnis, porro nulla accusamus harum?</p>
             </div>
         </div>
     </div>
     <div class="container p-3 mb-3">
         <div class="card card-border">
-            <h5 class="card-header text-center sign-up-header text-light">
+            <h5 id="card-header" class="card-header text-center sim-theme text-light">
                 <b>Customize Information</b>
             </h5>
             <div class="card-body bg-light">
@@ -134,8 +127,8 @@
                         <div class="row">
                             <div class="col-4"></div>
                             <div class="col-4 d-flex justify-content-center">
-                                <button id='submitCustomizeForm' class="btn btn-md sign-up-btn text-light mt-3 mr-3">Confirm</button>
-                                <button id='cancelCustomizeForm' class="btn btn-md sign-up-btn text-light mt-3">Cancel</button>
+                                <button id='submitCustomizeForm' class="sim-btn btn btn-md btn-primary text-light mt-3 mr-3">Confirm</button>
+                                <button id='cancelCustomizeForm' class="sim-btn btn btn-md btn-primary text-light mt-3">Cancel</button>
                             </div>
                             <div class="col-4"></div>
                         </div>
@@ -173,7 +166,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
     <script src="../js/customize-landing-page.js"></script>
-    <script src="../js/common.js"></script>
 </body>
 
 </html>

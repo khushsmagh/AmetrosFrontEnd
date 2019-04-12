@@ -48,6 +48,28 @@ window.addEventListener('load', function () {
         document.getElementById('footer').style.color = `${textColor}`;
     }
 
+    //initialize page
+    const partnerInfo = JSON.parse(sessionStorage.getItem('partnerData'));
+    const styles = partnerInfo.styles;
+    updateColor(styles.color1, styles.color2, styles.color3, styles.color4);
+    document.getElementById('partner-name').innerHTML = partnerInfo.name;
+    document.getElementById('partner-description').innerHTML = partnerInfo.description;
+    document.getElementById('partner-logo').innerHTML = partnerInfo.logoUrl;
+    const simHeaders = document.getElementsByClassName('sim-theme');
+    for (let index = 0; index < simHeaders.length; index++) {
+        const sim = simHeaders[index];
+        sim.style.color = styles.color1;
+        sim.style.background = styles.color5;
+        console.log(sim.style);
+    }
+    const simBtns = document.getElementsByClassName("sim-btn");
+    for (let index = 0; index < simBtns.length; index++) {
+        const btn = simBtns[index];
+        btn.style.color = styles.color1;
+        btn.style.background = styles.color6;
+    }
+
+
     //add event listner for color input change
     color1InputNode.addEventListener('change', function(e) {
         updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value);

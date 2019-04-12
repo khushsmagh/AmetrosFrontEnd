@@ -28,8 +28,8 @@ app.get('/styles/bvc', (req, res) => {
             color2: "rgba(131,111,180,1)",
             color3: "rgba(253,29,29,1)",
             color4: "rgba(252,176,69,1)",
-            color5: "rgba(244,244,244,1)",
-            color6: "rgba(255,255,255,1)"
+            color5: "rgba(253,29,29,1)",
+            color6: "rgba(253,29,29,1)"
         },
         Status: "success"
     });

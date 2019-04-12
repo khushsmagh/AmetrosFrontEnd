@@ -21,7 +21,6 @@ let cartProducts;
 
 window.addEventListener('load', function() {
     displayCartItemsNumber();
-    displayPartnerInfo();
     displaySimulationsOfPartner();
 });
 
@@ -44,7 +43,7 @@ function displayPartnerInfo() {
             partnerLogo.setAttribute('src', jsonData.logoUrl);
             // apply partner current color theme to whole page
             applyColorTheme(jsonData.styles.color1, jsonData.styles.color2, jsonData.styles.color3,
-                jsonData.styles.color4);
+                jsonData.styles.color4, jsonData.styles.color5, jsonData.styles.color6);
         })
         .catch(err => console.log(err));
 }
@@ -57,7 +56,7 @@ function displayPartnerInfo() {
  * @param {*} color2 
  * @param {*} color3 
  */
-function applyColorTheme(textColor, color1, color2, color3) {
+function applyColorTheme(textColor, color1, color2, color3, color4, color5) {
     
     //update banner background color
     document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
@@ -75,6 +74,19 @@ function applyColorTheme(textColor, color1, color2, color3) {
     }
     document.getElementsByClassName('navbar')[0].style.color = `${textColor}`;
     document.getElementById('footer').style.color = `${textColor}`;
+
+    const simHeaders = document.getElementsByClassName('sim-theme');
+    for (let index = 0; index < simHeaders.length; index++) {
+        const sim = simHeaders[index];
+        sim.style.color = textColor;
+        sim.style.background = color5;
+    }
+    const simBtns = document.getElementsByClassName("sim-btn");
+    for (let index = 0; index < simBtns.length; index++) {
+        const btn = simBtns[index];
+        btn.style.color = textColor;
+        btn.style.background = color5;
+    }
 }
 
 /**
@@ -90,6 +102,7 @@ function displaySimulationsOfPartner() {
         .then(jsonData => {
             // populate sims using response data
             populateSims(jsonData.sims);
+            displayPartnerInfo();
         })
         .catch(error => console.log(error));
 }
@@ -139,7 +152,7 @@ function populateSims(jsonObject) {
         let liNodeForSimSeatAvailable = document.createElement('li');
 
         let liNodeAttr = 'list-group-item';
-        let liNodeAttrForName = 'list-group-item sim-title text-white text-center title-simulation';
+        let liNodeAttrForName = 'list-group-item sim-title sim-theme text-center title-simulation';
 
         // adding class attr for all li and append
         // sim data to it
@@ -196,7 +209,7 @@ function populateSims(jsonObject) {
         buttonsContainer.setAttribute('class', 'd-flex justify-content-center');
 
         let addToCartButton = document.createElement('button');
-        addToCartButton.setAttribute('class', 'btn btn-primary my-4 ml-3 simulationAdd');
+        addToCartButton.setAttribute('class', 'btn sim-btn btn-primary my-4 ml-3 simulationAdd');
         addToCartButton.innerHTML = "Add To Cart";
 
         // add event click handler for add-to-cart button
@@ -216,7 +229,9 @@ function populateSims(jsonObject) {
 
         // append all col sim to root div
         rootDiv = document.getElementById('sims-container');
-        rootDiv.appendChild(btRow);
+        if (rootDiv !== null) {
+            rootDiv.appendChild(btRow);
+        }
     });
 }
 
