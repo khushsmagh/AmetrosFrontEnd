@@ -109,13 +109,14 @@ app.post('/users/login',(req, res) => {
         let userPassword = users[i].password;
         console.log("Email" + " --" + userEmail);
         console.log("Password", " --- " + userPassword);
-        if("pablo@gmail.com" === userEmail && "T@1234" === userPassword)
+        if(req.body.email === userEmail && req.body.password === userPassword)
         {
             status = true;
             break;
         }
     }
     if(status) {
+        console.log(status);
         res.status(200).json({
         Status: "success"
     });
@@ -126,9 +127,6 @@ app.post('/users/login',(req, res) => {
         }); 
     }
     console.log(req.body);
-    // res.status(200).json({
-    //     Status: "success"
-    // });
 });
 
 app.listen(app.get('port'), () => {
