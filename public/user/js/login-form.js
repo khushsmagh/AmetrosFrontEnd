@@ -1,5 +1,7 @@
 document.getElementById("loginBtn").addEventListener('click',function(e){
+    e.preventDefault();
     const loginUrl = "http://localhost:8000/users/login";
+    console.log("TEst console");
     
     const data = {
         email: document.getElementById("email").value,
@@ -10,15 +12,13 @@ document.getElementById("loginBtn").addEventListener('click',function(e){
         method : "POST",
         mode : "cors",
         cache : "no-cache",
-        credentials : "same-origin",
+        credentials : "omit",
         headers : {
             "Content-Type" : "application/json",
         },
-        redirect : "follow",
-        referrer : "no-referrer",
         body : JSON.stringify(data),
     };
     fetch(loginUrl,postBody)
-    .then(console.log("This is the response "+ res.body))
+    .then(res => console.log(res.json()))
     .catch(console.log("tEST"));
 });
