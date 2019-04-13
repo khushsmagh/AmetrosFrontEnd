@@ -78,6 +78,60 @@ app.post('/partner', (req, res) => {
     });
 });
 
+//Authentication for Login
+
+app.post('/users/login',(req, res) => {
+    var status = false;
+    let users =  [{
+            email: "test@gmail.com",
+            password: "T@1234"
+        },
+        {
+            email: "bvc@gmail.com",
+            password: "T@1234",  
+        },
+        {
+            email: "sandeep@gmail.com",
+            password: "T@1234",
+        },
+        {
+            email: "saad@gmail.com",
+            password: "T@1234"
+        },
+        {
+            email: "pablo@gmail.com",
+            password: "T@1234"
+        }      
+    ]
+
+    for(var i = 0 ; i < users.length; i++){
+        let userEmail = users[i].email;
+        let userPassword = users[i].password;
+        console.log("Email" + " --" + userEmail);
+        console.log("Password", " --- " + userPassword);
+        if("pablo@gmail.com" === userEmail && "T@1234" === userPassword)
+        {
+            status = true;
+            break;
+        }
+    }
+    if(status) {
+        res.status(200).json({
+        Status: "success"
+    });
+    }
+    else{
+        res.status(200).json({
+            Status: "failure"
+        }); 
+    }
+    console.log(req.body);
+    // res.status(200).json({
+    //     Status: "success"
+    // });
+});
+
 app.listen(app.get('port'), () => {
     console.log('Express running ->' + app.get('port'));
 });
+
