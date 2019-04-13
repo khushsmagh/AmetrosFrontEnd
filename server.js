@@ -72,7 +72,7 @@ app.get('/sims', (req, res) => {
 
 app.post('/partner', (req, res) => {
 
-    console.log(req.body);
+    //console.log(req.body);
     res.status(200).json({
         Status: "success"
     });
@@ -103,12 +103,14 @@ app.post('/users/login',(req, res) => {
             password: "T@1234"
         }      
     ]
+    // console.log("User Email" + req.body.email);
+    // console.log("User Psssword" + req.body.password);
 
     for(var i = 0 ; i < users.length; i++){
         let userEmail = users[i].email;
         let userPassword = users[i].password;
-        console.log("Email" + " --" + userEmail);
-        console.log("Password", " --- " + userPassword);
+        // console.log("Email" + " --" + userEmail);
+        // console.log("Password", " --- " + userPassword);
         if(req.body.email === userEmail && req.body.password === userPassword)
         {
             status = true;
@@ -122,11 +124,12 @@ app.post('/users/login',(req, res) => {
     });
     }
     else{
+        console.log(status);
         res.status(200).json({
             Status: "failure"
         }); 
     }
-    console.log(req.body);
+    //console.log(req.body);
 });
 
 app.listen(app.get('port'), () => {

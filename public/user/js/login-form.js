@@ -14,11 +14,11 @@ document.getElementById("loginBtn").addEventListener('click',function(e){
         headers : {
             "Content-Type" : "application/json",
         },
-        redirect = "follow",
-        referrer = "no-referrer",
-        body = JSON.stringify(data),
+        redirect : "follow",
+        referrer : "no-referrer",
+        body : JSON.stringify(data),
     };
     fetch(loginUrl,postBody)
-    .then(console.log)
-    .catch(console.log);
+    .then(console.log("This is the response "+ res.body))
+    .catch(console.log("tEST"));
 });
