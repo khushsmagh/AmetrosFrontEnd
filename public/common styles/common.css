@@ -4,6 +4,14 @@
 }
 .navbar a {}
 
+#navbar-ametros-login { color: white; }
+
+#navbar-ametros-signUp { color: white; }
+
+.nav-link{
+    color: white; 
+}
+
 #banner-background {
     width: 100%;
 }
