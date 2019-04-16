@@ -1,8 +1,17 @@
+
+
 window.addEventListener('load', function () {
     //get text color
     let textColor = document.getElementById('parner-info').style.color;
     let textColorInputNode = document.getElementById('textColorInput');
     textColorInputNode.value = textColor === "" ? "#010101" : textColor;
+
+    //show default values in form
+    let partnerData = JSON.parse(sessionStorage.getItem("partnerData"));
+    document.getElementById('partnerNameInput').value = partnerData.name;
+    document.getElementById('partnerDesriptionInput').value = partnerData.description;
+    document.getElementById('partnerUrlInput').value = partnerData.url;
+    document.getElementById('partnerLogoInput').value = partnerData.logoUrl;
 
     //event listner for partner name change
     const defaultPartnerName = document.getElementById('partner-name').innerHTML;
@@ -27,9 +36,9 @@ window.addEventListener('load', function () {
     let color3InputNode = document.getElementById('color3Input');
     let color4InputNode = document.getElementById('color4Input');
     let color5InputNode = document.getElementById('color5Input');
+   
 
     function updateColor(textColor, color1, color2, color3, color4, color5) {
-        console.log(color1 + " " + color2);
         //update banner background color
         document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
         //update nav background color
@@ -51,7 +60,6 @@ window.addEventListener('load', function () {
             const sim = simHeaders[index];
             sim.style.color = textColor;
             sim.style.background = color4;
-            console.log(sim.style);
         }
         // const simBtns = document.getElementsByClassName("sim-btn");
         // for (let index = 0; index < simBtns.length; index++) {
@@ -93,34 +101,42 @@ window.addEventListener('load', function () {
 
     //submit btn event listner
     document.getElementById('submitCustomizeForm').addEventListener('click', function (e) {
-       const postUrl = "https://localhost:8000/partner";
+       const postUrl = " http://ametrosapi.x10.mx/styles";
+       const logoInput = document.getElementById("partnerLogoInput").value;
+       const urlInput = document.getElementById('partnerUrlInput').value;
+       const nameInput = document.getElementById('partnerNameInput').value;
+       const descriptionInput = document.getElementById('partnerDesriptionInput').value;
+       if (nameInput === "" || logoInput === "" || urlInput === "" || descriptionInput === "") {
+           alert('please fill all the required field.');
+           return;
+       }
        const data = {
-           name : "Bow Valley College",
-           description : "welcome to our page.",
-           url : "bvc",
-           logo : "bvc.ca",
-           color1 : textColorInputNode.value,
-           color2 : color1InputNode.value,
-           color3 : color2InputNode.value,
-           color4 : color3InputNode.value,
-           color5 : color4InputNode.value,
-           color6 : color5InputNode.value,
+           name : nameInput,
+           description : descriptionInput,
+           url : urlInput,
+           logo : logoInput,
+           style : {
+                color1: textColorInputNode.value,
+                color2: color1InputNode.value,
+                color3: color2InputNode.value,
+                color4: color3InputNode.value,
+                color5: color4InputNode.value,
+                color6: color5InputNode.value,
+           },
+           token: "4c5b52cb1a0499b36696fe63114f0d889c2549334a6959c742"
        }
        const postBody = {
             method: "POST",
-            mode: "cors",
-            cache: "no-cache", 
-            credentials: "same-origin", 
-            headers: {
-                "Content-Type": "application/json",
-            },
-            redirect: "follow", 
-            referrer: "no-referrer",
             body: JSON.stringify(data),
        };
        fetch(postUrl, postBody)
-        .then(console.log)
-        .catch(console.log);
+        .then((data) => {
+            console.log(data);
+            window.location.href = "../html/landing-page.html";
+        })
+        .catch(() => {
+            alert("Error occured updating content. PLease try again.");
+        });
     });
 
     //cancel btn event listner

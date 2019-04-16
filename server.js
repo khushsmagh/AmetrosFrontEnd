@@ -7,6 +7,11 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
     extended: false
 })); // support encoded bodies
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
 app.use(bodyParser.json()); // support json encoded bodies
 
 //set port
@@ -160,8 +165,29 @@ app.post('/partner/:partnerUrl', (req, res) => {
             });
         });
 });
+//Authentication for Login
+
+app.post('/login',(req, res) => {
+    // console.log("User Email" + req.body.email);
+    // console.log("User Psssword" + req.body.password);
+    console.log("LOGIN RESPONSE");
+    console.log(res.json());
+    // if(status) {
+    //     console.log(status);
+    //     res.status(200).json({
+
+    // });
+    // }
+    // else{
+    //     console.log(status);
+    //     res.status(200).json({
+    //         Status: "failure"
+    //     }); 
+    // }
+});
 
 
 app.listen(app.get('port'), () => {
     console.log('Express running ->' + app.get('port'));
 });
+
