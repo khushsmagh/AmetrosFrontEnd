@@ -1,6 +1,6 @@
 const nameRegex = new RegExp(/^[a-zA-Z\-]+$/);
 const emailRegex = new RegExp(/^(([^<>()\[\]\.,;:\s@\A-Z"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/);
-const Passwordregex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})");
+const Passwordregex = new RegExp("^(?=.*)(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})");
 
 //hide all the warning messages.
 document.getElementById("invalid-email").style.display = "none";
@@ -91,11 +91,46 @@ document.getElementById("terms").addEventListener("keyup",function(e){
 function submitForm() {
     alert(validChecked);
     if(validEmail && validFname && validlname && !validChecked && (validPassword === validCpassword)){
+        authenticateSignUp();
         return true;
     }
     else {
         return false;
     }
+}
+
+function authenticateSignUp(){
+    //e.preventDefault();
+    const loginUrl = "http://ametrosapi.x10.mx/register";
+    
+    const data = {
+        name: document.getElementById("firstName").value + " " + document.getElementById("lastName").value,
+        login: document.getElementById("firstName").value,
+        password: document.getElementById("password").value,
+        email: document.getElementById("email").value,
+        partner: 1,
+    }
+
+    const postBody = {
+        method : "POST",
+        body : JSON.stringify(data),
+    };
+    fetch(loginUrl,postBody)
+    .then(response => {
+        return response.json();
+    })
+    .then(jsonData => {
+        if(jsonData.token){
+            sessionStorage.setItem("token", jsonData.token);
+            sessionStorage.setItem("admin", jsonData.isadmin);
+            console.log(jsonData.token);
+            window.location.href = "../landing-page/html/landing-page.html";
+    }
+        else{
+            console.log(jsonData.Status)
+        }
+    })
+    .catch(error => console.log(error));
 }
 
 
