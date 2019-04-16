@@ -28,7 +28,10 @@
                         <b>Sign-Up</b>
                     </h5>
                     <div class="card-body">
-                       
+                            <div class="form-group">
+                                <b>Username:</b>
+                                <input id = "username" class="form-control" type="text" placeholder="bob" required/>
+                            </div>
                             <div class="form-group">
                                 <b>Email:</b>
                                 <input id = "email" class="form-control" type="text" placeholder="bob@gmail.com" required/>
@@ -54,6 +57,13 @@
                                 <input id = "confirmPassword" class="form-control" type="password" placeholder="*********" required/>
                                 <div id = "invalid-Cpassword"  class="alert alert-danger mt-2" role="alert">Check your password</div>
                             </div>
+                            <div class="form-group">
+                                <label for="partner">Select Partner</label>
+                                <select class="form-control" id="partner-select">
+                                  <option>BVC</option>
+                                  <option>UofC</option>
+                                </select>
+                              </div>
                             <div class="form-check">
                                 <input id = "terms" class="form-check-input" type="checkbox" required/>
                                 <b>I agree with
@@ -61,7 +71,6 @@
                                     <div id="T&C">Please agree with terms and conditions</div>
                                 </b>
                             </div>
-                   
                     </div>
                     <div class="card-body text-center">
                         <a class="text-white" >
@@ -69,11 +78,13 @@
                                 <b>Sign-Up</b>
                             </button>
                         </a>
-                        <a class="text-white" href="../user/login.html">
-                            <button type="submit" class=" btn btn-md sign-up-btn text-light">
-                                <b>Login</b>
-                            </button>
-                        </a>
+                        <div class="card-body text-center">
+                            <span class="text-primary"> Already have an account?</span>
+                            <a href="../user/sign-up.html">
+    
+                                    <b><u>Sign In</u></b>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </form>
