@@ -28,7 +28,7 @@ window.addEventListener('load', function () {
     let color4InputNode = document.getElementById('color4Input');
     let color5InputNode = document.getElementById('color5Input');
 
-    function updateColor(textColor, color1, color2, color3) {
+    function updateColor(textColor, color1, color2, color3, color4, color5) {
         console.log(color1 + " " + color2);
         //update banner background color
         document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
@@ -46,26 +46,54 @@ window.addEventListener('load', function () {
         }
         document.getElementsByClassName('navbar')[0].style.color = `${textColor}`;
         document.getElementById('footer').style.color = `${textColor}`;
+        const simHeaders = document.getElementsByClassName('sim-theme');
+        for (let index = 0; index < simHeaders.length; index++) {
+            const sim = simHeaders[index];
+            sim.style.color = textColor;
+            sim.style.background = color4;
+            console.log(sim.style);
+        }
+        // const simBtns = document.getElementsByClassName("sim-btn");
+        // for (let index = 0; index < simBtns.length; index++) {
+        //     const btn = simBtns[index];
+        //     btn.style.color = textColor;
+        //     btn.style.background = color5;
+        // }
     }
+
+    //initialize page
+    const partnerInfo = JSON.parse(sessionStorage.getItem('partnerData'));
+    const styles = partnerInfo.styles;
+    updateColor(styles.color1, styles.color2, styles.color3, styles.color4, styles.color5, styles.color6);
+    document.getElementById('partner-name').innerHTML = partnerInfo.name;
+    document.getElementById('partner-description').innerHTML = partnerInfo.description;
+    document.getElementById('partner-logo').innerHTML = partnerInfo.logoUrl;
+
 
     //add event listner for color input change
     color1InputNode.addEventListener('change', function(e) {
-        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value);
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value, color4InputNode.value, color5InputNode.value);
     });
     color2InputNode.addEventListener('change', function (e) {
-        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value);
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value, color4InputNode.value, color5InputNode.value);
     });
     color3InputNode.addEventListener('change', function (e) {
-        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value);
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value, color4InputNode.value, color5InputNode.value);
+    });
+    color4InputNode.addEventListener('change', function (e) {
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value, color4InputNode.value, color5InputNode.value);
+    });
+    color5InputNode.addEventListener('change', function (e) {
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value, color4InputNode.value, color5InputNode.value);
     });
     //event listner for text color on change
     textColorInputNode.addEventListener('change', function (e) {
-        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value);
+        updateColor(textColorInputNode.value, color1InputNode.value, color2InputNode.value, color3InputNode.value, color4InputNode.value, color5InputNode.value);
     });
 
     //submit btn event listner
     document.getElementById('submitCustomizeForm').addEventListener('click', function (e) {
-       const postUrl = "http://localhost:8000/partner";
+       const postUrl = "https://localhost:8000/partner";
        const data = {
            name : "Bow Valley College",
            description : "welcome to our page.",

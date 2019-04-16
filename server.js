@@ -1,17 +1,18 @@
 const express = require('express');
 const app = express();
+const db = require('./config').db;
 
 //body parser middleware to get params from requests
 var bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 })); // support encoded bodies
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 })
+app.use(bodyParser.json()); // support json encoded bodies
 
 //set port
 app.set('port', process.env.PORT || 8000);
@@ -22,67 +23,148 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/styles/bvc', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.status(200).json({
-        name : "Bow Valley College",
-        description : "Welcome to our page.",
-        logoUrl: "https://geology.com/google-earth/google-earth.jpg",
-        styles: {
-            color1: "white",
-            color2: "rgba(131,111,180,1)",
-            color3: "rgba(253,29,29,1)",
-            color4: "rgba(252,176,69,1)",
-            color5: "rgba(244,244,244,1)",
-            color6: "rgba(255,255,255,1)"
-        },
-        Status: "success"
-    });
-});
 
-app.get('/sims', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.status(200).json({ 
-        sims: [{
-                simID: 1,
-                simName: "Soft Software Simulations",
-                simPhotoURL: "",
-                simPrice: 300,
-                simStartDate: "",
-                simEndDate: "",
-                simLimitSeats: 30
-            },
-            {
-                simID: 2,
-                simName: "Math Simulations",
-                simPhotoURL: "",
-                simPrice: 400,
-                simStartDate: "",
-                simEndDate: "",
-                simLimitSeats: 35
-            },
-            {
-                simID: 3,
-                simName: "Science Simulations",
-                simPhotoURL: "",
-                simPrice: 450,
-                simStartDate: "",
-                simEndDate: "",
-                simLimitSeats: 40
+/**
+ * api to get partner information with styles
+ * */
+app.get('/partner/:url', (req, res) => {
+    const url = req.params.url;
+    db.collection('Partners').where("Url", "==", url).get()
+        .then((snapshot) => {
+            let data = snapshot.docs.map((doc) => {
+                return doc.data();
+            });
+            if (data.length > 0) {
+                res.status(200).json({
+                    ...data[0],
+                    Status: "Success"
+                });
+            } else {
+                res.status(400).json({
+                    Guidance: "No data found",
+                    Status: "Failure"
+                });
             }
-        ],
-        Status : "Success"
-    });
+        }).catch((error) => {
+            console.error(error);
+            res.status(400).json({
+                Status: "Failure"
+            });
+        });
 });
 
-app.post('/partner', (req, res) => {
 
-    //console.log(req.body);
-    res.status(200).json({
-        Status: "success"
-    });
+/**
+ * api to get partner simulation
+ */
+app.get('/sims/:partnerUrl', (req, res) => {
+    const partnerUrl = req.params.partnerUrl;
+    db.collection('Simulations').where("partnerUrl", "==", partnerUrl).get()
+        .then((snapshot) => {
+            let data = snapshot.docs.map((doc) => {
+                return doc.data();
+            });
+            if (data.length > 0) {
+                res.status(200).json({
+                    sims: data,
+                    status: "Success"
+                })
+            } else {
+                res.status(400).json({
+                    Guidance: "No data found",
+                    Status: "Failure"
+                });
+            }
+        })
+        .catch(() => {
+            res.status(400).json({
+                Guidance: "No data found",
+                Status: "Failure"
+            });
+        });
 });
 
+/**
+ * Post API to update partner information and style information.
+ */
+app.post('/partner/:partnerUrl', (req, res) => {
+    const partnerInfo = req.body;
+    const partnerUrl = req.params.partnerUrl;
+
+    //get id of the document
+    db.collection('Partners').where("Url", "==", partnerUrl).get()
+        .then(snapshot => {
+            let data = snapshot.docs.filter((doc) => (doc.data().Url == partnerUrl));
+            if (data.length > 0) {
+                let docId = data[0].id;
+
+                //check url is already used
+                db.collection('Partners').where("Url", "==", partnerInfo.url).get()
+                    .then(aSnapshot => {
+                        //update partner info if url is unique
+                        if (aSnapshot.docs.length == 0) {
+                            
+                            let batch = db.batch();
+                            let docRef = db.collection("Partners").doc(docId);
+
+                            //update info in partner doc ref
+                            batch.update(docRef, {
+                                Name: partnerInfo.name,
+                                Description: partnerInfo.description,
+                                Url: partnerInfo.url,
+                                LogoUrl: partnerInfo.logo,
+                                Color1: partnerInfo.styles.color1,
+                                Color2: partnerInfo.styles.color2,
+                                Color3: partnerInfo.styles.color3,
+                                Color4: partnerInfo.styles.color4,
+                                Color5: partnerInfo.styles.color5,
+                                Color6: partnerInfo.styles.color6
+                            });
+
+                            //update all the simulation partnerurl atomic
+                            db.collection('Simulations').where("partnerUrl", "==", partnerUrl).get()
+                                .then((aSnap) => {
+                                    let data = aSnap.docs;
+                                    data.forEach(sim  => {
+                                        let simRef = db.collection("Simulations").doc(sim.id);
+                                        batch.update(simRef, { partnerUrl: partnerInfo.url});
+                                    });
+                                    batch.commit().then(() => {
+                                            res.status(400).json({
+                                                Guidance: "Information has been updated.",
+                                                Status: "Success"
+                                            });
+                                        }).catch(() => {
+                                            res.status(400).json({
+                                                Guidance: "Error while updating content. Please try again later.",
+                                                Status: "Failure"
+                                            });
+                                        });
+                                })
+
+                        } else {
+                            res.status(400).json({
+                                Guidance: "URL not unique. Please provide different url to update.",
+                                Status: "Failure"
+                            });
+                        }
+                    })
+                    .catch();
+            } else {
+                res.status(400).json({
+                    Guidance: "Wrong Url Provided to update.",
+                    Status: "Failure"
+                });
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(400).json({
+                Guidance: "Wrong Url Provided to update.",
+                Status: "Failure"
+            });
+        });
+});
 //Authentication for Login
 
 app.post('/users/login',(req, res) => {
@@ -134,8 +216,8 @@ app.post('/users/login',(req, res) => {
             Status: "failure"
         }); 
     }
-    //console.log(req.body);
 });
+
 
 app.listen(app.get('port'), () => {
     console.log('Express running ->' + app.get('port'));

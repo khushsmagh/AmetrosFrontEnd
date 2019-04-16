@@ -18,7 +18,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">Ametros Learning</a>
+        <a class="navbar-brand">Ametros Learning</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fas fa-list"></i></span>
@@ -65,62 +65,8 @@
         </div>
         <!-- content -->
             <div class="row d-flex justify-content-center">
-                <div class="col-md-11 ">
-                    <div class="row bg-light border border-dark rounded">
-                        <div class="col-md-3 my-3">
-                            <img id="partner-logo" src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
-                        </div>
-                        <div class="col-md-9 mt-3 simulationItems">
-                            <ul class="list-group">
-                                <li class="list-group-item sim-title text-white text-center title-simulation">Soft Software Simulations</li>
-                                <li class="list-group-item">Price: $<span class="price-simulation">400.00</span></li>
-                                <li class="list-group-item">Start Date: <span class="start-simulation">2019/07/03</span> </li>
-                                <li class="list-group-item">End Date: <span class="end-simulation">2019/09/04</span></li>
-                                <li class="list-group-item">Seats available: <span class="badge badge-secondary seats-simulation">30</span></li>
-                            </ul>
-                            <div class="d-flex justify-content-center">
-                                <a href="../../sim/sim-registration.html"><button class="btn btn-success my-4 registerSimulation">Register</button></a>
-                                <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row bg-light mt-4 border border-dark rounded">
-                        <div class="col-md-3 my-3">
-                            <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
-                        </div>
-                        <div class="col-md-9 mt-3 simulationItems">
-                            <ul class="list-group">
-                                <li class="list-group-item sim-title text-center text-white title-simulation">Math Simulations</li>
-                                <li class="list-group-item">Price: $<span class="price-simulation">300.00</span></li>
-                                <li class="list-group-item">Start Date: <span class="start-simulation">2019/01/2</span></li>
-                                <li class="list-group-item">End Date: <span class="end-simulation">2019/04/4</span></li>
-                                <li class="list-group-item">Seats available: <span class="badge badge-secondary seats-simulation">30</span></li>
-                            </ul>
-                            <div class="d-flex justify-content-center">
-                                <a href="../../sim/sim-registration.html"><button class="btn btn-success my-4 registerSimulation">Register</button></a>
-                                <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row bg-light mt-4 border border-dark rounded">
-                        <div class="col-md-3 my-3">
-                            <img src="https://geology.com/google-earth/google-earth.jpg" alt="logo" class="img-fluid" />
-                        </div>
-                        <div class="col-md-9 mt-3 simulationItems">
-                            <ul class="list-group">
-                                <li class="list-group-item sim-title text-center text-white title-simulation">Science Simulations</li>
-                                <li class="list-group-item">Price: $<span class="price-simulation">300.00</span></li>
-                                <li class="list-group-item">Start Date: <span class="start-simulation">2019/01/2</span></li>
-                                <li class="list-group-item">End Date: <span class="end-simulation">2019/04/4</span></li>
-                                <li class="list-group-item">Seats available: <span class="badge badge-secondary seats-simulation">30</span></li>
-                            </ul>
-                            <div class="d-flex justify-content-center">
-                                <a href="../../sim/sim-registration.html"><button class="btn btn-success my-4 registerSimulation">Register</button></a>
-                                <button class="btn btn-primary my-4 ml-3 simulationAdd">Add to cart</button>
-                            </div>
-                        </div>
-                    </div>
+                <div id="sims-container" class="col-md-11 ">
+                    
                 </div>
             </div>
         </div><!-- end row content -->
@@ -151,7 +97,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="../js/common.js"></script>
-    <script src="../js/add-simulation.js"></script>
     <script src="../../sim/sim-registartion.js"></script>
 </body>
 

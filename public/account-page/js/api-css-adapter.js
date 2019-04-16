@@ -8,6 +8,29 @@ for (var i = 0; i < document.styleSheets.length; i++) {
         var myCss = styleSheets[i];
     }
 }
+// url = "http://ametrosapi.x10.mx/simulations?token=27302879d5923d68b4ad3734f33fc2d77b79935aa33b30ee79";
+
+// IMPORTANT FETCH
+
+// url = "https://ghibliapi.herokuapp.com/films";
+
+// fetch(url)
+//     .then(
+//         function (response) {
+//             if (response.status !== 200) {
+//                 console.log('Status Code: ' + response.status);
+//                 return;
+//             }
+
+//             response.json().then(function (data) {
+//                 console.log(data);
+//             });
+//         }
+//     )
+//     .catch(function (err) {
+//         console.log('Fetch Error: ', err);
+//     });
+
 
 // Bow Valley Mockup
 var mockedUpResponse = {
@@ -21,14 +44,11 @@ var mockedUpResponse = {
         color4: "rgba(242,150,41,1)", // Gold
         color5: "rgba(244,244,244,1)", // White
         color6: "rgba(255,255,255,1)", // Pure white
-        lightTextColor: "white",
-        darkTextColor: "black",
-        fontType: "Verdana"
     },
     Status: "success"
 }
 
-// // University of Calgary
+// University of Calgary
 // var mockedUpResponse = {
 //     name: "University of Calgary",
 //     description: "lorem lorem",
@@ -42,7 +62,6 @@ var mockedUpResponse = {
 //         color6: "rgba(255,255,255,1)",
 //         lightTextColor: "white",
 //         darkTextColor: "black",
-//         fontType: "\"Source Sans Pro\", \"Arial\", sans-serif;"
 //     },
 //     Status: "success"
 // }
@@ -59,9 +78,6 @@ var mockedUpResponse = {
 //         color4: "rgba(0,0,0,1)",
 //         color5: "rgba(250,250,250,1)",
 //         color6: "rgba(255,255,255,1)",
-//         lightTextColor: "white",
-//         darkTextColor: "black",
-//         fontType: "\"Myriad Regular\", sans-serif;"
 //     },
 //     Status: "success"
 // }
@@ -78,12 +94,10 @@ var mockedUpResponse = {
 //         color4: "rgba(63,63,63,1)",
 //         color5: "rgba(250,250,250,1)",
 //         color6: "rgba(163,163,163,1)",
-//         lightTextColor: "white",
-//         darkTextColor: "black",
-//         fontType: "\"Myriad Regular\", sans-serif;"
 //     },
 //     Status: "success"
 // }
+
 
 
 
@@ -91,22 +105,21 @@ var resultJSON = JSON.stringify(mockedUpResponse);
 
 var result = JSON.parse(resultJSON);
 
-console.log(result["styles"]["fontType"]);
+var lightTextColor = "white";
 
+var darkTextColor = "black";
 
-
-
-
+var fontType = "Verdana";
 
 // Top Nav-bar
 /* Background Color Top Bar */
 changeBackgroundColor(0, result["styles"]["color1"], result["styles"]["color2"]);
 
 /* Nav-bar Icons color */
-changeColor(1, result["styles"]["lightTextColor"]);
+changeColor(1, lightTextColor);
 
 /* Search Icon */
-changeColor(2, result["styles"]["lightTextColor"]);
+changeColor(2, lightTextColor);
 
 /* Badge Counter */
 changeColor(3, result["styles"]["color1"]);
@@ -125,7 +138,7 @@ changeBackgroundColor(5, result["styles"]["color5"], result["styles"]["color5"])
 changeBackgroundColor(6, result["styles"]["color2"], result["styles"]["color2"]);
 
 /* Card Header Font */
-changeColor(7, result["styles"]["lightTextColor"]);
+changeColor(7, lightTextColor);
 
 /* Card Body Background */
 changeBackgroundColor(8, result["styles"]["color6"], result["styles"]["color6"]);
@@ -137,16 +150,16 @@ changeBackgroundColor(9, result["styles"]["color5"], result["styles"]["color5"])
 changeBackgroundColor(10, result["styles"]["color4"], result["styles"]["color4"]);
 
 /* Start Button Text Color */
-changeColor(20, result["styles"]["lightTextColor"]);
+changeColor(20, lightTextColor);
 
 /* A Simulation Table Font Color */
-changeColor(11, result["styles"]["darkTextColor"]);
+changeColor(11, darkTextColor);
 
 /* Simulation Details Font Color */
-changeColor(12, result["styles"]["darkTextColor"]);
+changeColor(12, darkTextColor);
 
 /* Module Label Font Color */
-changeColor(13, result["styles"]["darkTextColor"]);
+changeColor(13, darkTextColor);
 // End Main Content
 
 
@@ -169,10 +182,10 @@ changeColor(16, "rgb(255, 255, 255)");
 changeBackgroundColor(17, result["styles"]["color1"], result["styles"]["color2"]);
 
 /* Footer Text */
-changeColor(18, result["styles"]["lightTextColor"]);
+changeColor(18, lightTextColor);
 
 /* Font Type */
-changeFont(19, result["styles"]["fontType"])
+changeFont(19, fontType)
 
 /* Change Avatar */
 changeAvatar(result["logoUrl"]);
