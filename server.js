@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
+const db = require('./config').db;
 
 //body parser middleware to get params from requests
 var bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 })); // support encoded bodies
+app.use(bodyParser.json()); // support json encoded bodies
 
 //set port
 app.set('port', process.env.PORT || 8000);
@@ -17,65 +18,136 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/styles/bvc', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.status(200).json({
-        name : "Bow Valley College",
-        description : "Welcome to our page.",
-        logoUrl: "https://geology.com/google-earth/google-earth.jpg",
-        styles: {
-            color1: "white",
-            color2: "rgba(131,111,180,1)",
-            color3: "rgba(253,29,29,1)",
-            color4: "rgba(252,176,69,1)",
-            color5: "rgba(253,29,29,1)",
-            color6: "rgba(253,29,29,1)"
-        },
-        Status: "success"
-    });
-});
 
-app.get('/sims', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.status(200).json({ 
-        sims: [{
-                simID: 1,
-                simName: "Soft Software Simulations",
-                simPhotoURL: "https://geology.com/google-earth/google-earth.jpg",
-                simPrice: 300,
-                simStartDate: "2019-01-12",
-                simEndDate: "2020-01-12",
-                simLimitSeats: 30
-            },
-            {
-                simID: 2,
-                simName: "Math Simulations",
-                simPhotoURL: "http://shs.ssd6.org/files/2016/08/Wordle-Math.png",
-                simPrice: 400,
-                simStartDate: "2019-03-22",
-                simEndDate: "2020-03-22",
-                simLimitSeats: 35
-            },
-            {
-                simID: 3,
-                simName: "Science Simulations",
-                simPhotoURL: "https://risnews.com/_flysystem/s3/styles/content_sm/s3/2018-11/AI-20171012113039221.jpg?itok=oPpT7_5r",
-                simPrice: 450,
-                simStartDate: "2019-04-12",
-                simEndDate: "2020-04-12",
-                simLimitSeats: 40
+/**
+ * api to get partner information with styles
+ * */
+app.get('/partner/:url', (req, res) => {
+    const url = req.params.url;
+    db.collection('Partners').where("Url", "==", url).get()
+        .then((snapshot) => {
+            let data = snapshot.docs.map((doc) => {
+                return doc.data();
+            });
+            if (data.length > 0) {
+                res.status(200).json({
+                    ...data[0],
+                    Status: "Success"
+                });
+            } else {
+                res.status(400).json({
+                    Guidance: "No data found",
+                    Status: "Failure"
+                });
             }
-        ],
-        Status : "Success"
-    });
+        }).catch((error) => {
+            console.error(error);
+            res.status(400).json({
+                Status: "Failure"
+            });
+        });
 });
 
-app.post('/partner', (req, res) => {
 
-    console.log(req.body);
-    res.status(200).json({
-        Status: "success"
-    });
+/**
+ * api to get partner simulation
+ */
+app.get('/sims/:partnerUrl', (req, res) => {
+    const partnerUrl = req.params.partnerUrl;
+    db.collection('Simulations').where("partnerUrl", "==", partnerUrl).get()
+        .then((snapshot) => {
+            let data = snapshot.docs.map((doc) => {
+                return doc.data();
+            });
+            if (data.length > 0) {
+                res.status(200).json({
+                    sims: data,
+                    status: "Success"
+                })
+            } else {
+                res.status(400).json({
+                    Guidance: "No data found",
+                    Status: "Failure"
+                });
+            }
+        })
+        .catch(() => {
+            res.status(400).json({
+                Guidance: "No data found",
+                Status: "Failure"
+            });
+        });
+});
+
+/**
+ * Post API to update partner information and style information.
+ */
+app.post('/partner/:partnerUrl', (req, res) => {
+    const partnerInfo = req.body;
+    const partnerUrl = req.params.partnerUrl;
+
+    //get id of the document
+    db.collection('Partners').where("Url", "==", partnerUrl).get()
+        .then(snapshot => {
+            let data = snapshot.docs.filter((doc) => (doc.data().Url == partnerUrl));
+            if (data.length > 0) {
+                let docId = data[0].id;
+
+                //check url is already used
+                 db.collection('Partners').where("Url", "==", partnerInfo.url).get()
+                    .then(aSnapshot => {
+                        //update partner info if url is unique
+                        if (aSnapshot.docs.length == 0) {
+                            //update info in partner collection
+                            db.collection("Partners")
+                                .doc(docId)
+                                .update({
+                                    Name: partnerInfo.name,
+                                    Description: partnerInfo.description,
+                                    Url: partnerInfo.url,
+                                    LogoUrl: partnerInfo.logo,
+                                    Color1: partnerInfo.styles.color1,
+                                    Color2: partnerInfo.styles.color2,
+                                    Color3: partnerInfo.styles.color3,
+                                    Color4: partnerInfo.styles.color4,
+                                    Color5: partnerInfo.styles.color5,
+                                    Color6: partnerInfo.styles.color6
+                                })
+                                .then(() => {
+                                    res.status(200).json({
+                                        Guidance: "Request Complete.",
+                                        Status: "success"
+                                    });
+                                })
+                                .catch(error => {
+                                    console.error(error);
+                                    res.status(200).json({
+                                        Guidance: "Error Occured.",
+                                        Status: "Failure"
+                                    });
+                                });
+                        } else {
+                            res.status(400).json({
+                                Guidance: "URL not unique. Please provide different url to update.",
+                                Status: "Failure"
+                            });
+                        }
+                    })
+                    .catch();
+            } else {
+                res.status(400).json({
+                    Guidance: "Wrong Url Provided to update.",
+                    Status: "Failure"
+                });
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(400).json({
+                Guidance: "Wrong Url Provided to update.",
+                Status: "Failure"
+            });
+        });
 });
 
 app.listen(app.get('port'), () => {
