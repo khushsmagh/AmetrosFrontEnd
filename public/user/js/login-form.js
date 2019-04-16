@@ -1,24 +1,30 @@
 document.getElementById("loginBtn").addEventListener('click',function(e){
     e.preventDefault();
-    const loginUrl = "http://localhost:8000/users/login";
-    console.log("TEst console");
+    const loginUrl = "http://ametrosapi.x10.mx/login";
     
     const data = {
-        email: document.getElementById("email").value,
+        login: document.getElementById("email").value,
         password: document.getElementById("password").value,
     }
 
     const postBody = {
         method : "POST",
-        mode : "cors",
-        cache : "no-cache",
-        credentials : "omit",
-        headers : {
-            "Content-Type" : "application/json",
-        },
         body : JSON.stringify(data),
     };
     fetch(loginUrl,postBody)
-    .then(res => console.log(res.json()))
-    .catch(console.log("tEST"));
+    .then(response => {
+        return response.json();
+    })
+    .then(jsonData => {
+        if(jsonData.token){
+            sessionStorage.setItem("token", jsonData.token);
+            sessionStorage.setItem("admin", jsonData.isadmin);
+            console.log(jsonData.token);
+            window.location.href = "../landing-page/html/landing-page.html";
+    }
+        else{
+            console.log(jsonData.Status)
+        }
+    })
+    .catch(error => console.log(error));
 });

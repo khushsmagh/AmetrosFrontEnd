@@ -167,55 +167,23 @@ app.post('/partner/:partnerUrl', (req, res) => {
 });
 //Authentication for Login
 
-app.post('/users/login',(req, res) => {
-    var status = false;
-    let users =  [{
-            email: "test@gmail.com",
-            password: "T@1234"
-        },
-        {
-            email: "bvc@gmail.com",
-            password: "T@1234",  
-        },
-        {
-            email: "sandeep@gmail.com",
-            password: "T@1234",
-        },
-        {
-            email: "saad@gmail.com",
-            password: "T@1234"
-        },
-        {
-            email: "pablo@gmail.com",
-            password: "T@1234"
-        }      
-    ]
+app.post('/login',(req, res) => {
     // console.log("User Email" + req.body.email);
     // console.log("User Psssword" + req.body.password);
+    console.log("LOGIN RESPONSE");
+    console.log(res.json());
+    // if(status) {
+    //     console.log(status);
+    //     res.status(200).json({
 
-    for(var i = 0 ; i < users.length; i++){
-        let userEmail = users[i].email;
-        let userPassword = users[i].password;
-        // console.log("Email" + " --" + userEmail);
-        // console.log("Password", " --- " + userPassword);
-        if(req.body.email === userEmail && req.body.password === userPassword)
-        {
-            status = true;
-            break;
-        }
-    }
-    if(status) {
-        console.log(status);
-        res.status(200).json({
-        Status: "success"
-    });
-    }
-    else{
-        console.log(status);
-        res.status(200).json({
-            Status: "failure"
-        }); 
-    }
+    // });
+    // }
+    // else{
+    //     console.log(status);
+    //     res.status(200).json({
+    //         Status: "failure"
+    //     }); 
+    // }
 });
 
 
