@@ -19,7 +19,7 @@ let messageDiv = document.getElementById('addCart-message');
 messageDiv.setAttribute('style', 'visibility: hidden');
 let cartProducts;
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     displayCartItemsNumber();
     displaySimulationsOfPartner();
 });
@@ -57,7 +57,7 @@ function displayPartnerInfo() {
  * @param {*} color3 
  */
 function applyColorTheme(textColor, color1, color2, color3, color4, color5) {
-    
+
     //update banner background color
     document.getElementById('banner-background').style.background = `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
     //update nav background color
@@ -160,7 +160,7 @@ function populateSims(jsonObject) {
         // For Sim Name
         liNodeForSimName.setAttribute('class', liNodeAttrForName);
         liNodeForSimName.innerHTML = sim.simName;
-        
+
         // For Sim Price
         liNodeForSimPrice.setAttribute('class', liNodeAttr);
         let spanPrice = document.createElement('span');
@@ -169,7 +169,7 @@ function populateSims(jsonObject) {
         let textPrice = document.createTextNode('Price: $');
         liNodeForSimPrice.append(spanPrice);
         spanPrice.parentNode.insertBefore(textPrice, spanPrice);
-        
+
         // For Sim Start Date
         liNodeForSimStartDate.setAttribute('class', liNodeAttr);
         let spanStartDate = document.createElement('span');
@@ -178,7 +178,7 @@ function populateSims(jsonObject) {
         let textStartDate = document.createTextNode('Start Date: ');
         liNodeForSimStartDate.append(spanStartDate);
         spanStartDate.parentNode.insertBefore(textStartDate, spanStartDate);
-        
+
         // For Sim End Date
         liNodeForSimEndDate.setAttribute('class', liNodeAttr);
         let spanEndDate = document.createElement('span');
@@ -187,7 +187,7 @@ function populateSims(jsonObject) {
         let textEndDate = document.createTextNode('End Date: ');
         liNodeForSimEndDate.append(spanEndDate);
         spanEndDate.parentNode.insertBefore(textEndDate, spanEndDate);
-        
+
         // For Seat Available
         liNodeForSimSeatAvailable.setAttribute('class', liNodeAttr);
         let spanSeatAvailable = document.createElement('span');
