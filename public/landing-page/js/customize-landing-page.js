@@ -94,17 +94,28 @@ window.addEventListener('load', function () {
     //submit btn event listner
     document.getElementById('submitCustomizeForm').addEventListener('click', function (e) {
        const postUrl = "https://localhost:8000/partner";
+       const logoInput = document.getElementById("partnerLogoInput").value;
+       const urlInput = document.getElementById('partnerUrlInput').value;
+       const nameInput = document.getElementById('partnerNameInput').value;
+       const descriptionInput = document.getElementById('partnerDesriptionInput').value;
+       if (nameInput === "" || logoInput === "" || urlInput === "" || descriptionInput === "") {
+           alert('please fill all the required field.');
+           return;
+       }
        const data = {
-           name : "Bow Valley College",
-           description : "welcome to our page.",
-           url : "bvc",
-           logo : "bvc.ca",
-           color1 : textColorInputNode.value,
-           color2 : color1InputNode.value,
-           color3 : color2InputNode.value,
-           color4 : color3InputNode.value,
-           color5 : color4InputNode.value,
-           color6 : color5InputNode.value,
+           name : nameInput,
+           description : descriptionInput,
+           url : urlInput,
+           logo : logoInput,
+           style : {
+                color1: textColorInputNode.value,
+                color2: color1InputNode.value,
+                color3: color2InputNode.value,
+                color4: color3InputNode.value,
+                color5: color4InputNode.value,
+                color6: color5InputNode.value,
+           },
+           token: "14706d1a940f321468cc91a1b4abc010aa6c6fe87ca492f121"
        }
        const postBody = {
             method: "POST",
