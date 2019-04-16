@@ -29,7 +29,7 @@ window.addEventListener('load', function () {
  * and populate it 
  */
 function displayPartnerInfo() {
-    const URL = "http://localhost:8000/styles/bvc";
+    const URL = "https://localhost:8000/styles/bvc";
     fetch(URL)
         .then(response => {
             return response.json();
@@ -94,7 +94,7 @@ function applyColorTheme(textColor, color1, color2, color3, color4, color5) {
  * and display them
  */
 function displaySimulationsOfPartner() {
-    const simsURL = "http://localhost:8000/sims";
+    const simsURL = "https://localhost:8000/sims";
     fetch(simsURL)
         .then(response => {
             return response.json();
