@@ -1,46 +1,11 @@
+getUserSimulations(sessionStorage.getItem("token"));
 
-displayUserSimulations("f10cf8d83990ce6b46245cd3fd0578754ed726dcd9ef628380");
+console.log(sessionStorage.getItem("user-simulations"))
 
-var mockedUpData = {
-    "testUser":
-        [
-            {
-                "sim-id": "1",
-                "name": "Analysis and Critical Thinking",
-                "start-date": "2019-02-08",
-                "end-date": "2019-04-08",
-                "status": "active",
-                "avg-score": "70",
-                "prg-modules": ["80", "85", "75", "90", "70", "0"]
-            },
-            {
-                "sim-id": "2",
-                "name": "Change Management",
-                "start-date": "2019-02-23",
-                "end-date": "2019-04-23",
-                "status": "active",
-                "avg-score": "80",
-                "prg-modules": ["100", "70", "85", "65", "0", "0"]
-            },
-            {
-                "sim-id": "3",
-                "name": "Crisis Communication",
-                "start-date": "2019-03-01",
-                "end-date": "2019-05-01",
-                "status": "active",
-                "avg-score": "90",
-                "prg-modules": ["100", "80", "90", "0", "0", "0"]
-            }
-        ]
-};
+var result = JSON.parse(sessionStorage.getItem("user-simulations"));
+console.log(result);
 
-var resultAPI = JSON.stringify(mockedUpData);
-
-var result = JSON.parse(resultAPI);
-
-var simulations = result['testUser'];
-
-// console.log(simulations[0]["prg-modules"][0]);
+var simulations = result;
 
 userSimulations(result);
 
@@ -93,15 +58,15 @@ function showDetails(id) {
 function userSimulations(result) {
     var tableBody = document.getElementById("dataTable").getElementsByTagName("tbody")[0];;
     var rows = "";
-    for (let i = 0; i < result['testUser'].length; i++) {
-        const element = result['testUser'][i];
+    for (let i = 0; i < result.length; i++) {
+        const element = result[i];
         var row = '<tr class="table-row"><td id ="' + element['sim-id'] + '" class="table-data custom-font" onclick = "showDetails(' + element['sim-id'] + ');" > ' + element['name'] + ' </td ></tr >'
         rows += '\r\n' + (row) + '\r\n';
     }
     tableBody.innerHTML = rows;
 }
 
-function displayUserSimulations(token) {
+function getUserSimulations(token) {
     const simsURL = "http://ametrosapi.x10.mx/simulations";
     let url = simsURL + "?token=" + token;
     fetch(url)
@@ -109,9 +74,9 @@ function displayUserSimulations(token) {
             return response.json();
         })
         .then(jsonData => {
-            for (let i = 0; i < jsonData.length; i++) {
-                console.log(jsonData[i]);
-            }
+            // console.log(jsonData);
+            sessionStorage.setItem('user-simulations', JSON.stringify(jsonData));
+            // console.log(sessionStorage.getItem('user-simulations'));
         })
         .catch(error => console.log(error));
 }
@@ -124,6 +89,4 @@ function displayUserSimulations(token) {
 function logout() {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("admin");
-    console.log(sessionStorage.getItem("token"));
-    console.log(sessionStorage.getItem("token"));
 }
