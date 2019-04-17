@@ -5,6 +5,15 @@ if (!userToken || !admin) {
     window.location = "../../user/login.html";
 }
 
+//reload page when theme changed.
+console.log(sessionStorage.getItem("reload"));
+if (sessionStorage.getItem("reload") !== null && sessionStorage.getItem("reload") === "true") {
+    sessionStorage.setItem("reload", false);
+    window.setTimeout(() => {
+        window.location.reload(true);
+    }, 1000);
+}
+
 //hide edit layout option if not admin
 window.addEventListener('load',() => {
     if (admin != 1) {

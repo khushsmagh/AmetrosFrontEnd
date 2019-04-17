@@ -13,7 +13,7 @@ window.addEventListener('load', function () {
     document.getElementById('partnerUrlInput').value = partnerData.url;
     document.getElementById('partnerLogoInput').value = partnerData.logoUrl;
     document.getElementById('partner-logo').src = partnerData.logoUrl;
-    document.getElementById('textColorInput').value = partnerData.color1;
+    document.getElementById('textColorInput').value = partnerData.styles.color1;
     document.getElementById('color1Input').value = partnerData.styles.color2;
     document.getElementById('color2Input').value = partnerData.styles.color3;
     document.getElementById('color3Input').value = partnerData.styles.color4;
@@ -140,7 +140,8 @@ window.addEventListener('load', function () {
                 alert("Error occured updating content. PLease try again.");
                 return;
             }
-            window.location.href = "../html/landing-page.html";
+            sessionStorage.setItem("reload", true);
+            window.location.replace("../html/landing-page.html");
         })
         .catch(() => {
             alert("Error occured updating content. PLease try again.");
@@ -149,6 +150,6 @@ window.addEventListener('load', function () {
 
     //cancel btn event listner
     document.getElementById('cancelCustomizeForm').addEventListener('click', function (e) {
-        window.location.href = "../html/landing-page.html";
+        window.location.replace("../html/landing-page.html");
     });
 });

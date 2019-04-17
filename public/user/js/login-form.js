@@ -1,3 +1,7 @@
+if (sessionStorage.getItem('token') !== null && sessionStorage.getItem("admin") !== null) {
+    window.location.replace("../../landing-page/html/landing-page.html");
+}
+
 document.getElementById("loginBtn").addEventListener('click',function(e){
     e.preventDefault();
     const loginUrl = "http://ametrosapi.x10.mx/login";
