@@ -65,6 +65,10 @@ window.addEventListener('load' , function(){
     
 });
 
+let pdata = JSON.parse(sessionStorage.getItem('partnerData'));
+document.getElementsByClassName('navbar')[0].style.background = `linear-gradient(90deg, ${pdata.styles.color2}, ${pdata.styles.color3}, ${pdata.styles.color4})`;
+
+
 function createHtmlElement(element) {
     return document.createElement(element);
 }

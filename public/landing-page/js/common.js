@@ -39,7 +39,9 @@ const partnerLogo = document.getElementById('partner-logo');
 const partnerBanner = document.getElementById('banner-background');
 let messageDiv = document.getElementById('addCart-message');
 // by default it is hidden 
-messageDiv.setAttribute('style', 'visibility: hidden');
+if (messageDiv !== null) {
+    messageDiv.setAttribute('style', 'visibility: hidden');
+}
 let cartProducts;
 
 window.addEventListener('load', function () {
@@ -303,11 +305,16 @@ function addToCart(event) {
 
     // Pop up add to cart success message after 
     // simulation was added to cart
-    messageDiv.setAttribute('style', 'visibility: visible');
+    if (messageDiv !== null) {
+        messageDiv.setAttribute('style', 'visibility: visible');
+    }
+   // messageDiv.setAttribute('style', 'visibility: visible');
     // disappear the message after 2s
     let timeToShowMessage = 2000;
     setTimeout(() => {
-        messageDiv.setAttribute('style', 'visibility: hidden');
+        if (messageDiv !== null) {
+            messageDiv.setAttribute('style', 'visibility: hidden');
+        }
     }, timeToShowMessage);
 };
 
