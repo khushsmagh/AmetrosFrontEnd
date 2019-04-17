@@ -1,5 +1,6 @@
 let userToken = sessionStorage.getItem("token");
 let admin = sessionStorage.getItem("admin");
+sessionStorage.setItem("refresh", true);
 
 //not valid token go back to login page
 if (userToken === null || admin === null) {

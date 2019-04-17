@@ -1,11 +1,20 @@
 getUserSimulations(sessionStorage.getItem("token"));
 
-console.log(sessionStorage.getItem("user-simulations"))
-
 var result = JSON.parse(sessionStorage.getItem("user-simulations"));
-console.log(result);
 
 var simulations = result;
+
+// Hide Simulation Details
+(function () {
+    document.getElementById("sim-details").style.display = "none";
+})();
+
+if (sessionStorage.getItem("refresh") !== null && sessionStorage.getItem("refresh") === "true") {
+    sessionStorage.setItem("refresh", false);
+    window.setTimeout(() => {
+        window.location.reload(true);
+    }, 100);
+}
 
 userSimulations(result);
 
@@ -55,11 +64,11 @@ function showDetails(id) {
     })()
 };
 
-function userSimulations(result) {
+function userSimulations(mResult) {
     var tableBody = document.getElementById("dataTable").getElementsByTagName("tbody")[0];;
     var rows = "";
-    for (let i = 0; i < result.length; i++) {
-        const element = result[i];
+    for (let i = 0; i < mResult.length; i++) {
+        const element = mResult[i];
         var row = '<tr class="table-row"><td id ="' + element['sim-id'] + '" class="table-data custom-font" onclick = "showDetails(' + element['sim-id'] + ');" > ' + element['name'] + ' </td ></tr >'
         rows += '\r\n' + (row) + '\r\n';
     }
@@ -69,7 +78,7 @@ function userSimulations(result) {
 function getUserSimulations(token) {
     const simsURL = "http://ametrosapi.x10.mx/simulations";
     let url = simsURL + "?token=" + token;
-    fetch(url)
+    fetch(url, {cache: "no-cache"})
         .then(response => {
             return response.json();
         })
@@ -81,12 +90,9 @@ function getUserSimulations(token) {
         .catch(error => console.log(error));
 }
 
-// Hide Simulation Details
-(function () {
-    document.getElementById("sim-details").style.display = "none";
-})();
-
 function logout() {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("admin");
+    sessionStorage.removeItem("user-simulations");
 }
+
