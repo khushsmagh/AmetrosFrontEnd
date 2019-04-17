@@ -1,0 +1,10 @@
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+RewriteEngine On
+RewriteRule login/* api/login.php
+RewriteRule register/* api/register.php
+RewriteRule simulations/* api/simulation.php
+RewriteRule partners/* api/partners.php
+RewriteRule styles/* api/styles.php

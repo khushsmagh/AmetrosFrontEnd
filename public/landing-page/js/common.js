@@ -104,7 +104,7 @@ function applyColorTheme(textColor, color1, color2, color3, color4, color5) {
     for (let index = 0; index < simHeaders.length; index++) {
         const sim = simHeaders[index];
         sim.style.color = textColor;
-        sim.style.background = color5;
+        sim.style.background = color4;
     }
     const simBtns = document.getElementsByClassName("sim-btn");
     for (let index = 0; index < simBtns.length; index++) {
