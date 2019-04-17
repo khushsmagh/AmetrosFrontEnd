@@ -1,12 +1,12 @@
 let userToken = sessionStorage.getItem("token");
 let admin = sessionStorage.getItem("admin");
+
 //not valid token go back to login page
-if (!userToken || !admin) {
-    window.location = "../../user/login.html";
+if (userToken === null || admin === null) {
+     window.location = "../../user/login.html";
 }
 
 //reload page when theme changed.
-console.log(sessionStorage.getItem("reload"));
 if (sessionStorage.getItem("reload") !== null && sessionStorage.getItem("reload") === "true") {
     sessionStorage.setItem("reload", false);
     window.setTimeout(() => {
