@@ -88,28 +88,27 @@ document.getElementById("terms").addEventListener("keyup",function(e){
 
 
 
-function submitForm() {
-    alert(validChecked);
+document.getElementById("signupBtn").addEventListener('click',function(e){
     if(validEmail && validFname && validlname && !validChecked && (validPassword === validCpassword)){
+        e.preventDefault();
         authenticateSignUp();
-        return true;
     }
-    else {
-        return false;
-    }
-}
+});
 
 function authenticateSignUp(){
-    //e.preventDefault();
+    var op = document.getElementById("partner-select");
+    var selected = document.getElementById("partner-select").selectedIndex;
     const loginUrl = "http://ametrosapi.x10.mx/register";
+    var selectedPartner = document.getElementById("partner-select");
     
     const data = {
         name: document.getElementById("firstName").value + " " + document.getElementById("lastName").value,
-        login: document.getElementById("firstName").value,
+        login: document.getElementById("username").value,
         password: document.getElementById("password").value,
         email: document.getElementById("email").value,
-        partner: 1,
+        partner: op.options[selected].value,
     }
+    console.log("partnerId " + data.partner);
 
     const postBody = {
         method : "POST",
@@ -120,23 +119,20 @@ function authenticateSignUp(){
         return response.json();
     })
     .then(jsonData => {
-        if(jsonData.token){
-            sessionStorage.setItem("token", jsonData.token);
-            sessionStorage.setItem("admin", jsonData.isadmin);
-            console.log(jsonData.token);
-            window.location.href = "../landing-page/html/landing-page.html";
+        if(jsonData.message){
+            // sessionStorage.setItem("token", jsonData.token);
+            // sessionStorage.setItem("admin", jsonData.isadmin);
+            console.log("message -- " + jsonData.message);
+            window.location.href = "../user/login.html";
     }
-        else{
-            console.log(jsonData.Status)
-        }
     })
-    .catch(error => console.log(error));
+    .catch(error => alert("username already taken"));
 }
 
 
 
 
-function resetForm() {
-    document.getElementById("signUpForm").reset();
-}
+// function resetForm() {
+//     document.getElementById("signUpForm").reset();
+// }
 
