@@ -1,3 +1,26 @@
+let userToken = sessionStorage.getItem("token");
+let admin = sessionStorage.getItem("admin");
+//not valid token go back to login page
+if (!userToken || !admin) {
+    window.location = "../../user/login.html";
+}
+
+//reload page when theme changed.
+console.log(sessionStorage.getItem("reload"));
+if (sessionStorage.getItem("reload") !== null && sessionStorage.getItem("reload") === "true") {
+    sessionStorage.setItem("reload", false);
+    window.setTimeout(() => {
+        window.location.reload(true);
+    }, 1000);
+}
+
+//hide edit layout option if not admin
+window.addEventListener('load',() => {
+    if (admin != 1) {
+        document.getElementById("edit-icon").style.visibility = 'hidden';
+    }
+});
+
 // Simulation class with properties
 class Simulation {
     constructor(title, price, startDate, endDate, seatsAvailable) {
@@ -29,7 +52,7 @@ window.addEventListener('load', function () {
  * and populate it 
  */
 function displayPartnerInfo() {
-    const URL = "http://ametrosapi.x10.mx/styles?token=74a05fb148a00775cea23c2d83e18aefe19a6c113a8b2298bf";
+    const URL = "http://ametrosapi.x10.mx/styles?token=" + userToken;
     fetch(URL)
         .then(response => {
             return response.json();
