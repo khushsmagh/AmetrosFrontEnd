@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +30,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion custom-sidebar" id="accordionSidebar">
             <br />
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../landing-page/html/landing-page.html">
+            <a id="avatarLink" class="sidebar-brand d-flex align-items-center justify-content-center" href="../landing-page/html/landing-page.html">
                 <div class="sidebar-brand-icon">
                     <img id="avatar" src="img/default.png" class="rounded-circle img-fluid" style="height: 70px;">
                 </div>
@@ -50,32 +49,32 @@
 
 
             <!-- Nav Item - Simulations -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="user-account.html">
                     <i class="fas fa-fw fa-folder icon-sidebar"></i>
                     <span class="custom-font">Simulations</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Account -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="user-account.html">
                     <i class="fas fa-fw fa-user icon-sidebar"></i>
                     <span class="custom-font">Account</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Settings -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="user-account.html">
                     <i class="fas fa-fw fa-cogs icon-sidebar"></i>
                     <span class="custom-font">Settings</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Log out -->
             <li class="nav-item">
-                <a class="nav-link" href="../user/login.html">
+                <a class="nav-link" href="../user/login.html" onclick="logout()">
                     <i class="fas fa-fw fa-sign-out-alt icon-sidebar"></i>
                     <span class="custom-font">Log out</span>
                 </a>
@@ -263,6 +262,9 @@
                                     <p class="custom-font">Status:
                                         <span id="status" class="custom-font">Unknown</span>
                                     </p>
+                                    <p class="custom-font">Average Score:
+                                        <span id="avgScore" class="custom-font">0</span>
+                                    </p>
                                     <p class="custom-font">Progress:</p>
 
                                     <h4 class="small custom-font">Module 1
@@ -361,7 +363,6 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this page-->
-    <script src="js/mockupData.js"></script>
     <script src="js/api-content-adapter.js"></script>
     <script src="js/api-css-adapter.js"></script>
 

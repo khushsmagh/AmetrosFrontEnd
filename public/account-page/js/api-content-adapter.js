@@ -1,6 +1,5 @@
 
-
-displayUserSimulations("b898362328b50e50bea680d4d3544e0d641a350669eb443104");
+displayUserSimulations("f10cf8d83990ce6b46245cd3fd0578754ed726dcd9ef628380");
 
 var mockedUpData = {
     "testUser":
@@ -11,7 +10,7 @@ var mockedUpData = {
                 "start-date": "2019-02-08",
                 "end-date": "2019-04-08",
                 "status": "active",
-                "avg-score": "80",
+                "avg-score": "70",
                 "prg-modules": ["80", "85", "75", "90", "70", "0"]
             },
             {
@@ -53,6 +52,7 @@ function showDetails(id) {
     const startDate = document.getElementById("startDate");
     const endDate = document.getElementById("endDate");
     const status = document.getElementById("status");
+    const avgScore = document.getElementById("avgScore");
     const module1Score = document.getElementById("module1Score");
     const module2Score = document.getElementById("module2Score");
     const module3Score = document.getElementById("module3Score");
@@ -74,6 +74,7 @@ function showDetails(id) {
                 startDate.innerHTML = simulation["start-date"];
                 endDate.innerHTML = simulation["end-date"];
                 status.innerHTML = simulation["status"];
+                avgScore.innerHTML = simulation["avg-score"];
                 module1Score.innerHTML = simulation["prg-modules"][0];
                 module2Score.innerHTML = simulation["prg-modules"][1];
                 module3Score.innerHTML = simulation["prg-modules"][2];
@@ -108,7 +109,6 @@ function displayUserSimulations(token) {
             return response.json();
         })
         .then(jsonData => {
-            console.log(jsonData);
             for (let i = 0; i < jsonData.length; i++) {
                 console.log(jsonData[i]);
             }
@@ -120,3 +120,11 @@ function displayUserSimulations(token) {
 (function () {
     document.getElementById("sim-details").style.display = "none";
 })();
+
+function logout() {
+    // alert("test");
+    if (sessionStorage.getItem['token'] !== null) {
+        sessionStorage.setItem("token", null);
+        location.href = "/public/user/login.html";
+    }
+}
