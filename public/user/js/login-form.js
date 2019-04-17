@@ -1,5 +1,8 @@
-if (sessionStorage.getItem('token') !== null && sessionStorage.getItem("admin") !== null) {
-    window.location.replace("../../landing-page/html/landing-page.html");
+let userToken = sessionStorage.getItem("token");
+let admin = sessionStorage.getItem("admin");
+//not valid token go back to login page
+if (userToken !== null && admin !== null) {
+    window.location = "../../landing-page/html/landing-page.html";
 }
 
 document.getElementById("loginBtn").addEventListener('click',function(e){

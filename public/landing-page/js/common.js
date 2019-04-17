@@ -1,12 +1,12 @@
 let userToken = sessionStorage.getItem("token");
 let admin = sessionStorage.getItem("admin");
+
 //not valid token go back to login page
-if (!userToken || !admin) {
-    window.location = "../../user/login.html";
+if (userToken === null || admin === null) {
+     window.location = "../../user/login.html";
 }
 
 //reload page when theme changed.
-console.log(sessionStorage.getItem("reload"));
 if (sessionStorage.getItem("reload") !== null && sessionStorage.getItem("reload") === "true") {
     sessionStorage.setItem("reload", false);
     window.setTimeout(() => {
@@ -104,7 +104,7 @@ function applyColorTheme(textColor, color1, color2, color3, color4, color5) {
     for (let index = 0; index < simHeaders.length; index++) {
         const sim = simHeaders[index];
         sim.style.color = textColor;
-        sim.style.background = color5;
+        sim.style.background = color4;
     }
     const simBtns = document.getElementsByClassName("sim-btn");
     for (let index = 0; index < simBtns.length; index++) {

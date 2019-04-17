@@ -122,9 +122,8 @@ function displayUserSimulations(token) {
 })();
 
 function logout() {
-    // alert("test");
-    if (sessionStorage.getItem['token'] !== null) {
-        sessionStorage.setItem("token", null);
-        location.href = "/public/user/login.html";
-    }
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("admin");
+    console.log(sessionStorage.getItem("token"));
+    console.log(sessionStorage.getItem("token"));
 }
