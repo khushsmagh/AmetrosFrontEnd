@@ -1,4 +1,7 @@
-getUserSimulations(sessionStorage.getItem("token"));
+if (sessionStorage.getItem("refresh") !== null && sessionStorage.getItem("refresh") === "true") {
+    getUserSimulations(sessionStorage.getItem("token"));
+}
+sessionStorage.setItem("refresh", true);
 
 var result = JSON.parse(sessionStorage.getItem("user-simulations"));
 
@@ -8,13 +11,6 @@ var simulations = result;
 (function () {
     document.getElementById("sim-details").style.display = "none";
 })();
-
-if (sessionStorage.getItem("refresh") !== null && sessionStorage.getItem("refresh") === "true") {
-    sessionStorage.setItem("refresh", false);
-    window.setTimeout(() => {
-        window.location.reload(true);
-    }, 100);
-}
 
 userSimulations(result);
 
@@ -83,9 +79,9 @@ function getUserSimulations(token) {
             return response.json();
         })
         .then(jsonData => {
-            // console.log(jsonData);
             sessionStorage.setItem('user-simulations', JSON.stringify(jsonData));
-            // console.log(sessionStorage.getItem('user-simulations'));
+            sessionStorage.setItem("refresh", false);
+            window.location.reload(true);
         })
         .catch(error => console.log(error));
 }
