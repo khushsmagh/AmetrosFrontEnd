@@ -60,10 +60,14 @@ window.addEventListener('load' , function(){
 
         tableBody.appendChild(tableRow);
 
-
+        sessionStorage.removeItem('cartProducts');
     console.log(totalPrice);
     
 });
+
+let pdata = JSON.parse(sessionStorage.getItem('partnerData'));
+document.getElementsByClassName('navbar')[0].style.background = `linear-gradient(90deg, ${pdata.styles.color2}, ${pdata.styles.color3}, ${pdata.styles.color4})`;
+
 
 function createHtmlElement(element) {
     return document.createElement(element);
@@ -76,4 +80,5 @@ function getLatestListSim() {
 function showPaymentPage() {
     document.getElementById("loader").style.display = "none";
     document.getElementById("displayPaymentInfo").style.display = "block";
-    }
+}
+

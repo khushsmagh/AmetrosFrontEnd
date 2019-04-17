@@ -12,6 +12,13 @@ window.addEventListener('load', function () {
     document.getElementById('partnerDesriptionInput').value = partnerData.description;
     document.getElementById('partnerUrlInput').value = partnerData.url;
     document.getElementById('partnerLogoInput').value = partnerData.logoUrl;
+    document.getElementById('partner-logo').src = partnerData.logoUrl;
+    document.getElementById('textColorInput').value = partnerData.styles.color1;
+    document.getElementById('color1Input').value = partnerData.styles.color2;
+    document.getElementById('color2Input').value = partnerData.styles.color3;
+    document.getElementById('color3Input').value = partnerData.styles.color4;
+    document.getElementById('color4Input').value = partnerData.styles.color5;
+    document.getElementById('color5Input').value = partnerData.styles.color6;
 
     //event listner for partner name change
     const defaultPartnerName = document.getElementById('partner-name').innerHTML;
@@ -61,12 +68,6 @@ window.addEventListener('load', function () {
             sim.style.color = textColor;
             sim.style.background = color4;
         }
-        // const simBtns = document.getElementsByClassName("sim-btn");
-        // for (let index = 0; index < simBtns.length; index++) {
-        //     const btn = simBtns[index];
-        //     btn.style.color = textColor;
-        //     btn.style.background = color5;
-        // }
     }
 
     //initialize page
@@ -114,8 +115,8 @@ window.addEventListener('load', function () {
            name : nameInput,
            description : descriptionInput,
            url : urlInput,
-           logo : logoInput,
-           style : {
+           logoUrl : logoInput,
+           styles : {
                 color1: textColorInputNode.value,
                 color2: color1InputNode.value,
                 color3: color2InputNode.value,
@@ -123,16 +124,24 @@ window.addEventListener('load', function () {
                 color5: color4InputNode.value,
                 color6: color5InputNode.value,
            },
-           token: "4c5b52cb1a0499b36696fe63114f0d889c2549334a6959c742"
+           token: sessionStorage.getItem("token")
        }
+       console.log(JSON.stringify(data));
        const postBody = {
             method: "POST",
             body: JSON.stringify(data),
        };
        fetch(postUrl, postBody)
+       .then(response => {
+               return response.json();
+           })
         .then((data) => {
-            console.log(data);
-            window.location.href = "../html/landing-page.html";
+            if (data.Status && data.Status === "error") {
+                alert("Error occured updating content. PLease try again.");
+                return;
+            }
+            sessionStorage.setItem("reload", true);
+            window.location.replace("../html/landing-page.html");
         })
         .catch(() => {
             alert("Error occured updating content. PLease try again.");
@@ -141,6 +150,6 @@ window.addEventListener('load', function () {
 
     //cancel btn event listner
     document.getElementById('cancelCustomizeForm').addEventListener('click', function (e) {
-        window.location.href = "../html/landing-page.html";
+        window.location.replace("../html/landing-page.html");
     });
 });
