@@ -27,7 +27,8 @@ document.getElementById("loginBtn").addEventListener('click',function(e){
             window.location.href = "../landing-page/html/landing-page.html";
     }
         else{
-            console.log(jsonData.Status)
+            alert("Please check username or password");
+            console.log(jsonData.Status);
         }
     })
     .catch(error => console.log(error));

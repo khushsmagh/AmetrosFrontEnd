@@ -60,7 +60,7 @@ window.addEventListener('load' , function(){
 
         tableBody.appendChild(tableRow);
 
-
+        sessionStorage.removeItem('cartProducts');
     console.log(totalPrice);
     
 });
@@ -76,4 +76,5 @@ function getLatestListSim() {
 function showPaymentPage() {
     document.getElementById("loader").style.display = "none";
     document.getElementById("displayPaymentInfo").style.display = "block";
-    }
+}
+
