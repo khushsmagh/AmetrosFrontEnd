@@ -102,7 +102,7 @@ window.addEventListener('load', function () {
 
     //submit btn event listner
     document.getElementById('submitCustomizeForm').addEventListener('click', function (e) {
-       const postUrl = " http://ametrosapi.x10.mx/styles";
+       const postUrl = " https://ametrosapi.x10.mx/styles";
        const logoInput = document.getElementById("partnerLogoInput").value;
        const urlInput = document.getElementById('partnerUrlInput').value;
        const nameInput = document.getElementById('partnerNameInput').value;

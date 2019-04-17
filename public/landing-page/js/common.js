@@ -52,7 +52,7 @@ window.addEventListener('load', function () {
  * and populate it 
  */
 function displayPartnerInfo() {
-    const URL = "http://ametrosapi.x10.mx/styles?token=" + userToken;
+    const URL = "https://ametrosapi.x10.mx/styles?token=" + userToken;
     fetch(URL)
         .then(response => {
             return response.json();
@@ -117,7 +117,7 @@ function applyColorTheme(textColor, color1, color2, color3, color4, color5) {
  * and display them
  */
 function displaySimulationsOfPartner() {
-    const simsURL = "http://ametrosapi.x10.mx/simulations";
+    const simsURL = "https://ametrosapi.x10.mx/simulations";
     fetch(simsURL)
         .then(response => {
             return response.json();
